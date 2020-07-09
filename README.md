@@ -28,7 +28,7 @@ allprojects {
 }
 
 dependencies {
-        implementation 'com.github.Jaimss:Jaims-Utils:-SNAPSHOT'
+        implementation 'com.github.Jaimss:Jaims-Utils:{version}'
 }
 ```
 
