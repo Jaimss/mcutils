@@ -1,5 +1,7 @@
 import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.ChatColor
+import org.bukkit.Material
+import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import javax.print.attribute.standard.Severity
@@ -13,6 +15,14 @@ fun String.colorize(player: Player? = null): String {
     var result = ChatColor.translateAlternateColorCodes('&', this)
     if (player != null) result = PlaceholderAPI.setPlaceholders(player, result)
     return result
+}
+
+/**
+ * Sends [this] player a [message] that is colorized!
+ * @param player - a player to use for PlaceholderAPI's placeholders
+ */
+fun Player.send(message: String, player: Player?=null) {
+    this.sendMessage(message.colorize(player))
 }
 
 /**
@@ -58,4 +68,8 @@ fun Int.toRomanNumeral(): String {
         }
     }
     return output
+}
+
+fun test(player: Player) {
+
 }
