@@ -69,7 +69,3 @@ fun Int.toRomanNumeral(): String {
     }
     return output
 }
-
-fun test(player: Player) {
-
-}
