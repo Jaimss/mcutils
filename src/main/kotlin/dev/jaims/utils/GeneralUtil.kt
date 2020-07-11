@@ -1,7 +1,7 @@
+package dev.jaims.utils
+
 import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.ChatColor
-import org.bukkit.Material
-import org.bukkit.enchantments.Enchantment
 import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import javax.print.attribute.standard.Severity
@@ -21,7 +21,7 @@ fun String.colorize(player: Player? = null): String {
  * Sends [this] player a [message] that is colorized!
  * @param player - a player to use for PlaceholderAPI's placeholders
  */
-fun Player.send(message: String, player: Player?=null) {
+fun Player.send(message: String, player: Player? = null) {
     this.sendMessage(message.colorize(player))
 }
 
@@ -45,19 +45,20 @@ fun Plugin.log(message: String, severity: Severity = Severity.REPORT) {
  */
 fun Int.toRomanNumeral(): String {
     val map = mapOf(
-            1000 to "M",
-            900 to "CM",
-            500 to "D",
-            400 to "CD",
-            100 to "C",
-            90 to "XC",
-            50 to "L",
-            40 to "XL",
-            10 to "X",
-            9 to "IX",
-            5 to "V",
-            4 to "IV",
-            1 to "I")
+        1000 to "M",
+        900 to "CM",
+        500 to "D",
+        400 to "CD",
+        100 to "C",
+        90 to "XC",
+        50 to "L",
+        40 to "XL",
+        10 to "X",
+        9 to "IX",
+        5 to "V",
+        4 to "IV",
+        1 to "I"
+    )
     var remainder = this
     var output = ""
 

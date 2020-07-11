@@ -1,4 +1,7 @@
 utils/.idea/
 utils/target
 
+.idea
 build/
+.gradle
+gradle
