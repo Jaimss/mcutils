@@ -1,36 +1,5 @@
 # Jaims' Utils
-A utilities package for Minecraft Kotlin Development.
-
-### How to use
-**Latest** is **`1.0`**
-##### Maven:
-You can clone this repository and run `mvn clean install` inside the repository folder, or you can use [jitpack](https://jitpack.io/#Jaimss/Jaims-Utils).
-```xml
-<repositories>
-  <repository>
-      <id>jitpack.io</id>
-      <url>https://jitpack.io</url>
-  </repository>
-</repositories>
-<dependency>
-    <groupId>com.github.Jaimss</groupId>
-    <artifactId>Jaims-Utils</artifactId>
-    <version>{version}</version> <!--Replace with latest from above-->
-</dependency>
-```
-##### Gradle via jitpack:
-```
-allprojects {
-  repositories {
-    ...
-    maven { url 'https://jitpack.io' }
-  }
-}
-
-dependencies {
-        implementation 'com.github.Jaimss:Jaims-Utils:{version}'
-}
-```
+Utilities package for Minecraft Development.
 
 ### Language Support
 As far as I know, after including this in your plugin, you *should* be able to use the features in both Kotlin and Java, ***however***, I will only provide support for Kotlin related issues.
