@@ -1,10 +1,9 @@
 utils/.idea/
 utils/target
 
-gradle.properties
+
 
 .idea
 build/
 .gradle
 gradle
-*.properties
