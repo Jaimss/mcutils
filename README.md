@@ -1,42 +1,53 @@
 # Jaims' Utils
-Utilities package for Minecraft Development.
+A collection of Minecraft utilities for Bukkit/Bungeecord Plugin Development - so you don't need to create that Utils class every time ;)
 
-### Language Support
-As far as I know, after including this in your plugin, you *should* be able to use the features in both Kotlin and Java, ***however***, I will only provide support for Kotlin related issues.
+#### Language Support
+This project uses Kotlin. The majority of these features make use of Kotlin's [extension functions](https://kotlinlang.org/docs/reference/extensions.html).
+This allows for you to use features like `Player#send("&3message")` and it will automatically color the message for you, however this does have some downsides.
+From my experience, Java does not accept Kotlin's extension functions as valid methods, so if you are using Java for your plugins, many of these features still will not work.
+Things like the `ItemBuilder`, however, still do work.
+**I strongly suggest giving Kotlin a try!**
 
-### Features
-The two main features of this project are
-- [`The Item Builder`](https://github.com/Jaimss/Jaims-Utils/blob/master/utils/src/main/kotlin/ItemBuilder.kt)
-- [`The General Utils for Bukkit`](https://github.com/Jaimss/Jaims-Utils/blob/master/utils/src/main/kotlin/GeneralUtil.kt)
+#### Bungeecord v Bukkit
+This project was made with both Bungeecord and Bukkit in mind. 
+When making a Bukkit plugin, you can include the Bukkit module as a dependency, and when making a Bungeecord plugin, you can include the Bungeecord dependency.
 
-##### The ItemBuilder
-The ItemBuilder is a feature intended to make it as easy as possible to make custom Items in your plugin.
-###### Example:
-```kotlin
-ItemBuilder(Material.DIAMOND_SWORD) // create a diamond sword item
-        .addEnchantment(Enchantment.DAMAGE_ALL, 4) // will add Sharpness 4 to the item
-        .addEnchantment(Enchantment.FIRE_ASPECT) // will add fire aspect 1
-        .setName("Jaims' Sword") // will set the Item Name
-        .addLore("Don't Use!") // this is a single line lore
-        .addLore(listOf(
-                "Or Else!",
-                "He will be mad!"
-        )) // add a multi line lore
-        .get() // returns the ItemStack with all the features from above
+#### Including Jaims' Utils
+- Latest Version: `2.0`
+- Platform:
+    - `bungee` for Bungeecord Development
+    - `bukkit` for Bukkit Development
+###### Gradle (build.gradle)
+```groovy
+repositories {
+    maven { url 'https://repo.jaims.dev' }
+}
+dependencies {
+    implementation 'dev.jaims.jaimsutils:{platform}:{version}'
+}
+```
+###### Maven (pom.xml)
+```xml
+<repositories>
+    <repository>
+        <id>jaimsdev</id>
+        <url>https://repo.jaims.dev</url>
+    </repository>
+</repositories>
+<dependencies>
+    <dependency>
+        <groupId>dev.jaims.jaimsutils</groupId>
+        <artifactId>{platform}</artifactId>
+        <version>{version}</version>
+    </dependency>
+</dependencies>
 ```
 
-##### The General Utils for Bukkit
-The General Utils feature is intended to make basic things like sending players messages, colorizing your messages, logging messages to console, and more an easy action that doesn't require extra work.
-###### Examples:
-```kotlin
-"&3This &bis &9a &6message".colorize() // will turn the message into a colored message using the color codes given
-player.send("&aYour name is %player_name%", player) // will send a player a message and set the placeholder
-player.send("&3Hey, welcome to our server!") // send a colored message
-plugin.log("&dThis is a log message!") // sends a log to console
-plugin.log("This is an error!", Severity.ERROR) // sends an error message to console
-```
-There are also a few fun things that can be useful at times:
-```kotlin
-val level = 10 // a random level for the player if you have a level system maybe
-player.send("&aYour level is &2${level.toRomanNumeral()}") // lets you turn ints to roman numerals
-```
+#### Examples
+For Usage Examples, please see the [wiki](https://github.com/Jaimss/Jaims-Utils/wiki).
+
+#### Bugs / Feature Requests
+If you would like to report a bug, or request a feature, please open an [issue](https://github.com/Jaimss/Jaims-Utils/issues).
+
+#### Contributing
+If you would like to contribute, you can open a [pull request](https://github.com/Jaimss/Jaims-Utils/pulls). If you would like to discuss first, please make an [issue](https://github.com/Jaimss/Jaims-Utils/issues).
