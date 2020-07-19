@@ -1,22 +1,18 @@
 plugins {
-    id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 }
 
 repositories {
     mavenCentral()
     maven { url 'https://papermc.io/repo/repository/maven-public/' }
-    maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
 }
 
 dependencies {
     compile project(":common")
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-    implementation 'com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT'
-    compile 'me.clip:placeholderapi:2.10.4'
+    implementation 'io.github.waterfallmc:waterfall-api:1.16-R0.1-SNAPSHOT'
 }
-
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
@@ -24,4 +20,3 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
-
