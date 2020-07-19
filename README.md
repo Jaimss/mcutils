@@ -20,7 +20,7 @@ When making a Bukkit plugin, you can include the Bukkit module as a dependency, 
 ###### Gradle (build.gradle)
 ```gradle
 repositories {
-    maven { url 'https://repo.jaims.dev' }
+    mavenCentral() // coming soon
 }
 dependencies {
     implementation 'dev.jaims.jaimsutils:{platform}:{version}'
@@ -28,12 +28,6 @@ dependencies {
 ```
 ###### Maven (pom.xml)
 ```xml
-<repositories>
-    <repository>
-        <id>jaimsdev</id>
-        <url>https://repo.jaims.dev</url>
-    </repository>
-</repositories>
 <dependencies>
     <dependency>
         <groupId>dev.jaims.jaimsutils</groupId>
