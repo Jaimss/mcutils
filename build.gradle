@@ -1,11 +1,24 @@
-plugins {
-    id 'com.github.johnrengelman.shadow' version '5.2.0'
-}
-
 subprojects {
 
     apply plugin: 'maven'
+    apply plugin: 'maven-publish'
 
     group 'dev.jaims.jaimsutils'
     version '2.0'
+
+    publishing {
+        repositories {
+            maven {
+                def releasesRepoUrl = "https://repo.bristermitten.me/repository/maven-releases"
+                def snapshotsRepoUrl = "https://repo.bristermitten.me/repository/maven-snapshots"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+                credentials {
+                    username System.getenv("ossrhUsername")
+                    password System.getenv("ossrhUsername")
+                }
+            }
+        }
+    }
+
 }
