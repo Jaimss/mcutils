@@ -18,7 +18,7 @@ When making a Bukkit plugin, you can include the Bukkit module as a dependency, 
     - `bungee` for Bungeecord Development
     - `bukkit` for Bukkit Development
 ###### Gradle (build.gradle)
-```groovy
+```gradle
 repositories {
     maven { url 'https://repo.jaims.dev' }
 }
