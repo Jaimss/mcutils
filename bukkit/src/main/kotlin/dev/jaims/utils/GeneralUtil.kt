@@ -2,6 +2,8 @@ package dev.jaims.utils
 
 import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.ChatColor
+import org.bukkit.Location
+import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
 import javax.print.attribute.standard.Severity
@@ -21,8 +23,22 @@ fun String.colorize(player: Player? = null): String {
  * Sends [this] player a [message] that is colorized!
  * @param player - a player to use for PlaceholderAPI's placeholders
  */
-fun Player.send(message: String, player: Player? = null) {
+fun CommandSender.send(message: String, player: Player? = null) {
     this.sendMessage(message.colorize(player))
+}
+
+/**
+ * @param location the location to check against
+ * @param radius the radius to be in
+ * @return if the player is within a certain amount of blocks of a location
+ */
+fun Player.inRadiusOfLocation(location: Location, radius: Int): Boolean {
+    return this.location.y > location.y - radius &&
+            this.location.y < location.y + radius &&
+            this.location.x > location.x - radius &&
+            this.location.x < location.y + radius &&
+            this.location.z > location.z - radius &&
+            this.location.z < location.z + radius
 }
 
 /**
@@ -70,3 +86,52 @@ fun Int.toRomanNumeral(): String {
     }
     return output
 }
+
+/**
+ * Get the different hours, minutes, seconds, etc. from a Integer in seconds
+ * @return a map of the proper time units
+ */
+fun Int.toTimeFormatted(): Map<Times, Int> {
+    var remainder = this
+    val years = 31536000 / remainder
+    remainder -= years * 31536000
+    val months = 2592000 / remainder
+    remainder -= months * 2592000
+    val weeks = remainder / 604800
+    remainder -= weeks * 604800
+    val days = remainder / 86400
+    remainder -= days * 86400
+    val hours = remainder / 3600
+    remainder -= hours * 3600
+    val minutes = remainder / 60
+    remainder -= minutes * 60
+    val seconds = remainder
+    return mapOf(
+        Times.YEARS to years,
+        Times.MONTHS to months,
+        Times.WEEKS to weeks,
+        Times.DAYS to days,
+        Times.HOURS to hours,
+        Times.MINUTES to minutes,
+        Times.SECONDS to seconds
+    )
+}
+
+/**
+ * A simple enum for the names of different time specs.
+ */
+enum class Times(val placeholder: String) {
+    YEARS("years"),
+    MONTHS("months"),
+    WEEKS("weeks"),
+    DAYS("days"),
+    HOURS("hours"),
+    MINUTES("minutes"),
+    SECONDS("seconds");
+
+    override fun toString(): String {
+        return placeholder
+    }
+}
+
+

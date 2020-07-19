@@ -1,2 +1,5 @@
-rootProject.name = 'Jaims-Utils'
+rootProject.name = 'jaimsutils'
+include(
+        'bukkit'
+)
 
