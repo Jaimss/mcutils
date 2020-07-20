@@ -30,10 +30,10 @@ subprojects {
                 maven {
                     name = "GitHubPackages"
                     url = uri("https://maven.pkg.github.com/jaimss/mcutils")
-//                    credentials {
-//                        username = project.findProperty("github.username") ?: System.getenv("github.username")
-//                        password = project.findProperty("github.token") ?: System.getenv("github.token")
-//                    }
+                    credentials {
+                        username = project.findProperty("github.username") ?: System.getenv("USERNAME")
+                        password = project.findProperty("github.token") ?: System.getenv("TOKEN")
+                    }
                 }
             }
             publications {
