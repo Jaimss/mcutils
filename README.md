@@ -1,4 +1,4 @@
-# Jaims' Utils [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Jaimss/mcutils/blob/master/LICENSE)
+# mcutils [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Jaimss/mcutils/blob/master/LICENSE)
 A collection of Minecraft utilities for Bukkit/Bungeecord Plugin Development - so you don't need to create that Utils class every time ;)
 
 
@@ -13,7 +13,7 @@ Things like the `ItemBuilder`, however, still do work.
 This project was made with both Bungeecord and Bukkit in mind. 
 When making a Bukkit plugin, you can include the Bukkit module as a dependency, and when making a Bungeecord plugin, you can include the Bungeecord dependency.
 
-#### Including Jaims' Utils
+#### Including mcutils
 [![Stable Release](https://img.shields.io/github/v/release/jaimss/mcutils?color=brightgreen&label=stable)](https://github.com/Jaimss/mcutils/releases) [![Latest Release](https://img.shields.io/github/v/release/jaimss/mcutils?color=ffaa00&include_prereleases&label=latest)](https://github.com/Jaimss/mcutils/releases)
 - Platform:
     - `bungee` for Bungeecord Development
