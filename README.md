@@ -38,7 +38,7 @@ dependencies {
 ```
 
 #### Examples
-For Usage Examples, please see the [wiki](https://github.com/Jaimss/Jaims-Utils/wiki).
+For Usage Examples, please see the [wiki](https://github.com/Jaimss/Jaims-Utils/wiki). *(Coming Soon)*
 
 #### Bugs / Feature Requests
 If you would like to report a bug, or request a feature, please open an [issue](https://github.com/Jaimss/Jaims-Utils/issues).
