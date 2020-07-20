@@ -16,7 +16,7 @@ allprojects {
     }
 }
 
-def ver = '2.0.3'
+def ver = '2.0.4'
 
 group 'dev.jaims'
 version ver
