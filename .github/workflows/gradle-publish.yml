@@ -29,5 +29,5 @@ jobs:
     - name: Publish to GitHub Packages
       run: gradle publish
       env:
-        USERNAME: ${{ GH_USERNAME }}
-        TOKEN: ${{ GH_TOKEN }}
+        USERNAME: ${{ secrets.GH_USERNAME }}
+        TOKEN: ${{ secrets.GH_TOKEN }}
