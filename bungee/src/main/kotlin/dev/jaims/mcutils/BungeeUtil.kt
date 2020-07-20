@@ -36,10 +36,30 @@ fun CommandSender.send(message: String) {
 }
 
 /**
+ * Send multiple messsages at once
+ * @param messages the list of messages to send
+ */
+fun CommandSender.send(messages: MutableList<String>) {
+    for (m in messages) {
+        send(m)
+    }
+}
+
+/**
  * Send a message to a list of command senders
  */
 fun MutableList<ProxiedPlayer>.send(message: String) {
     for (cs in this) {
         cs.send(message)
+    }
+}
+
+/**
+ * Send a list of messages
+ * @param messages the list of messages to send
+ */
+fun MutableList<ProxiedPlayer>.send(messages: MutableList<String>) {
+    for (m in messages) {
+        send(m)
     }
 }

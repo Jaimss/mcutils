@@ -42,11 +42,32 @@ fun CommandSender.send(message: String, player: Player? = null) {
 }
 
 /**
+ * Send multiple messsages at once
+ * @param messages the list of messages to send
+ */
+fun CommandSender.send(messages: MutableList<String>) {
+    for (m in messages) {
+        send(m)
+    }
+}
+
+/**
  * Send a message to a list of command senders
+ * @param message the message to send to all the players
  */
 fun MutableList<Player>.send(message: String) {
     for (cs in this) {
         cs.send(message)
+    }
+}
+
+/**
+ * Send a list of messages
+ * @param messages the list of messages to send
+ */
+fun MutableList<Player>.send(messages: MutableList<String>) {
+    for (m in messages) {
+        send(m)
     }
 }
 
