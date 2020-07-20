@@ -26,7 +26,7 @@ subprojects {
     publishing {
         publishing {
             // Publish to Github Packages
-            /* repositories {
+            repositories {
                 maven {
                     name = "GitHubPackages"
                     url = uri("https://maven.pkg.github.com/jaimss/mcutils")
@@ -39,19 +39,6 @@ subprojects {
             publications {
                 gpr(MavenPublication) {
                     from components.java
-                }
-            }*/
-            // Publish to maven central
-            repositories {
-                maven {
-                    def snapshots = "https://oss.sonatype.org/content/repositories/snapshots"
-                    def releases = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-                    url = version.endsWith('SNAPSHOT') ? snapshots : releases
-                    print(url)
-                    credentials {
-                        username = project.findProperty("mavencentral.username") ?: System.getenv("mavencentral.username")
-                        password = project.findProperty("mavencentral.password") ?: System.getenv("mavencentral.password")
-                    }
                 }
             }
         }
