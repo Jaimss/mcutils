@@ -42,6 +42,15 @@ fun CommandSender.send(message: String, player: Player? = null) {
 }
 
 /**
+ * Send a message to a list of command senders
+ */
+fun MutableList<Player>.send(message: String) {
+    for (cs in this) {
+        cs.send(message)
+    }
+}
+
+/**
  * @param location the location to check against
  * @param radius the radius to be in
  * @return if the player is within a certain amount of blocks of a location

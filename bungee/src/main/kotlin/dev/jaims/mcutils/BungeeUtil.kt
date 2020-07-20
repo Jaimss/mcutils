@@ -3,6 +3,7 @@ package dev.jaims.mcutils
 import net.md_5.bungee.api.ChatColor
 import net.md_5.bungee.api.CommandSender
 import net.md_5.bungee.api.chat.TextComponent
+import net.md_5.bungee.api.connection.ProxiedPlayer
 import net.md_5.bungee.api.plugin.Plugin
 import javax.print.attribute.standard.Severity
 
@@ -32,4 +33,13 @@ fun Plugin.log(message: String, severity: Severity = Severity.REPORT) {
  */
 fun CommandSender.send(message: String) {
     sendMessage(*TextComponent.fromLegacyText(message.colorize()))
+}
+
+/**
+ * Send a message to a list of command senders
+ */
+fun MutableList<ProxiedPlayer>.send(message: String) {
+    for (cs in this) {
+        cs.send(message)
+    }
 }
