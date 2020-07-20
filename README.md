@@ -1,6 +1,6 @@
-# Jaims' Utils
+# Jaims' Utils [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Jaimss/mcutils/blob/master/LICENSE)
 A collection of Minecraft utilities for Bukkit/Bungeecord Plugin Development - so you don't need to create that Utils class every time ;)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Jaimss/mcutils/blob/master/LICENSE)
+
 
 #### Language Support
 This project uses Kotlin. The majority of these features make use of Kotlin's [extension functions](https://kotlinlang.org/docs/reference/extensions.html).
