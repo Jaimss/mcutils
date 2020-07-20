@@ -33,6 +33,13 @@ fun Int.toRomanNumeral(): String {
 }
 
 /**
+ * @return the seconds difference between two dates.
+ */
+fun Date.getSecondsDifference(date: Date): Int {
+    return ((this.time - date.time) / 1000).toInt()
+}
+
+/**
  * Get the different hours, minutes, seconds, etc. from a Integer in seconds
  * @return a map of the proper time units
  */
