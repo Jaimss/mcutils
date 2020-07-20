@@ -103,13 +103,13 @@ class ItemBuilder(
      * Set the item to glow. True will make it glow, false will make it now glow.
      * @return an ItemBuilder
      */
-    fun setGlow(newglow: Boolean) = apply { glow = newglow }
+    fun setGlow(newglow: Boolean = true) = apply { glow = newglow }
 
     /**
      * Set if the item should be unbreakable or not
      * @return an ItemBuilder
      */
-    fun setUnbreakable(newunbreakable: Boolean) = apply { unbreakable = newunbreakable }
+    fun setUnbreakable(newunbreakable: Boolean = true) = apply { unbreakable = newunbreakable }
 
     /**
      * Add a list of [newitemflags] to the current [itemflags]

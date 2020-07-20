@@ -38,9 +38,9 @@ fun Int.toRomanNumeral(): String {
  */
 fun Int.toTimeFormatted(): Map<Times, Int> {
     var remainder = this
-    val years = 31536000 / remainder
+    val years = remainder / 31536000
     remainder -= years * 31536000
-    val months = 2592000 / remainder
+    val months = remainder / 2592000
     remainder -= months * 2592000
     val weeks = remainder / 604800
     remainder -= weeks * 604800
