@@ -72,9 +72,30 @@ fun Int.toTimeFormatted(): Map<Times, Int> {
 }
 
 /**
+ * @return if [this] is a
+ */
+fun String.getInputType(): InputType {
+    if (matches("[A-Za-z0-9]{8}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{12}".toRegex()))
+        return InputType.UUID
+    if (matches("[A-Za-z0-9]{32}".toRegex())) return InputType.SHORTUUID
+    return InputType.NAME
+}
+
+/**
+ * A simple enum class for input types
+ * Useful when getting user inputs to see if it is a UUID or a username
+ */
+enum class InputType {
+    UUID,
+    SHORTUUID,
+    NAME;
+}
+
+/**
  * A simple enum for the names of different time specs.
  */
 enum class Times(val placeholder: String) {
+
     YEARS("years"),
     MONTHS("months"),
     WEEKS("weeks"),
