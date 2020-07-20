@@ -13,14 +13,15 @@ This project was made with both Bungeecord and Bukkit in mind.
 When making a Bukkit plugin, you can include the Bukkit module as a dependency, and when making a Bungeecord plugin, you can include the Bungeecord dependency.
 
 #### Including Jaims' Utils
-- Latest Version: `2.0`
+[![Generic badge](https://img.shields.io/badge/Latest-2.0-green.svg)](https://github.com/Jaimss/mcutils/releases)
 - Platform:
     - `bungee` for Bungeecord Development
     - `bukkit` for Bukkit Development
+*The jaims.dev repo is coming soon. For now install locally or use [jitpack.io](https://jitpack.io)*
 ###### Gradle (build.gradle)
 ```gradle
 repositories {
-    mavenLocal()
+    maven { url 'repo.jaims.dev' }
 }
 dependencies {
     implementation 'dev.jaims.jaimsutils:{platform}:{version}'
@@ -28,6 +29,10 @@ dependencies {
 ```
 ###### Maven (pom.xml)
 ```xml
+<repositories>
+    <id>jaimsrepo</id>
+    <url>repo.jaims.dev</url>
+</repositories>
 <dependencies>
     <dependency>
         <groupId>dev.jaims.jaimsutils</groupId>
