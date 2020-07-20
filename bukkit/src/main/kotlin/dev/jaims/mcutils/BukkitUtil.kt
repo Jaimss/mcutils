@@ -1,4 +1,4 @@
-package dev.jaims.jaimsutils
+package dev.jaims.mcutils
 
 import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.ChatColor

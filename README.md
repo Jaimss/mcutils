@@ -23,14 +23,14 @@ repositories {
     mavenLocal()
 }
 dependencies {
-    implementation 'dev.jaims.jaimsutils:{platform}:{version}'
+    implementation 'dev.jaims.mcutils:{platform}:{version}'
 }
 ```
 ###### Maven (pom.xml)
 ```xml
 <dependencies>
     <dependency>
-        <groupId>dev.jaims.jaimsutils</groupId>
+        <groupId>dev.jaims.mcutilsdev.jaims.mcutils</groupId>
         <artifactId>{platform}</artifactId>
         <version>{version}</version>
     </dependency>

@@ -1,4 +1,4 @@
-rootProject.name = 'jaimsutils'
+rootProject.name = 'mcutils'
 include(
         'bukkit',
         'bungee',

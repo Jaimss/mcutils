@@ -1,6 +1,6 @@
 plugins {
     id 'maven-publish'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.72' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
 }
 
 allprojects {
@@ -16,26 +16,43 @@ allprojects {
     }
 }
 
-subprojects {
-    group 'dev.jaims.jaimsutils'
-    version '2.0'
-}
+group 'dev.jaims'
+version '2.0'
 
-publishing {
+subprojects {
+    group 'dev.jaims.mcutils'
+    version '2.0'
+
     publishing {
-        repositories {
-            maven {
-                name = "GitHubPackages"
-                url = uri("https://maven.pkg.github.com/jaimss/Jaims-Utils")
-                credentials {
-                    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                    password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+        publishing {
+            // Publish to Github Packages
+            /* repositories {
+                maven {
+                    name = "GitHubPackages"
+                    url = uri("https://maven.pkg.github.com/jaimss/mcutils")
+                    credentials {
+                        username = project.findProperty("github.username") ?: System.getenv("github.username")
+                        password = project.findProperty("github.token") ?: System.getenv("github.token")
+                    }
                 }
             }
-        }
-        publications {
-            gpr(MavenPublication) {
-                from(components.java)
+            publications {
+                gpr(MavenPublication) {
+                    from components.java
+                }
+            }*/
+            // Publish to maven central
+            repositories {
+                maven {
+                    def snapshots = "https://oss.sonatype.org/content/repositories/snapshots"
+                    def releases = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+                    url = version.endsWith('SNAPSHOT') ? snapshots : releases
+                    print(url)
+                    credentials {
+                        username = project.findProperty("mavencentral.username") ?: System.getenv("mavencentral.username")
+                        password = project.findProperty("mavencentral.password") ?: System.getenv("mavencentral.password")
+                    }
+                }
             }
         }
     }

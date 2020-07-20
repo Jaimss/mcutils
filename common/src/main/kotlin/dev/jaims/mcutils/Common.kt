@@ -1,4 +1,4 @@
-package dev.jaims.jaimsutils
+package dev.jaims.mcutils
 
 /**
  * Turn an int into a Roman Numeral String

@@ -1,4 +1,4 @@
-package dev.jaims.jaimsutils
+package dev.jaims.mcutils
 
 import net.md_5.bungee.api.ChatColor
 import net.md_5.bungee.api.CommandSender
