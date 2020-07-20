@@ -16,12 +16,14 @@ allprojects {
     }
 }
 
+def ver = '2.0.3'
+
 group 'dev.jaims'
-version '2.0.1'
+version ver
 
 subprojects {
     group 'dev.jaims.mcutils'
-    version '2.0.1'
+    version ver
 
     publishing {
         publishing {
