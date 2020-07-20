@@ -1,4 +1,6 @@
 # Jaims' Utils
+[![codecov](https://codecov.io/gh/Jaimss/Jaims-Utils/branch/master/graph/badge.svg)](https://codecov.io/gh/Jaimss/Jaims-Utils)
+
 A collection of Minecraft utilities for Bukkit/Bungeecord Plugin Development - so you don't need to create that Utils class every time ;)
 
 #### Language Support
