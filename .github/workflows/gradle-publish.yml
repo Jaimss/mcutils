@@ -5,8 +5,6 @@ name: Gradle Package
 
 on:
   release:
-#     types: [created, published, unpublished, edited, prereleased, released]
-  push:
 
 jobs:
   build:
