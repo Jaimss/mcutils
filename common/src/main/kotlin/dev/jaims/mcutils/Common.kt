@@ -1,24 +1,26 @@
 package dev.jaims.mcutils
 
+import java.util.*
+
 /**
  * Turn an int into a Roman Numeral String
  * @return the correct roman numeral string for [this]
  */
 fun Int.toRomanNumeral(): String {
     val map = mapOf(
-        1000 to "M",
-        900 to "CM",
-        500 to "D",
-        400 to "CD",
-        100 to "C",
-        90 to "XC",
-        50 to "L",
-        40 to "XL",
-        10 to "X",
-        9 to "IX",
-        5 to "V",
-        4 to "IV",
-        1 to "I"
+            1000 to "M",
+            900 to "CM",
+            500 to "D",
+            400 to "CD",
+            100 to "C",
+            90 to "XC",
+            50 to "L",
+            40 to "XL",
+            10 to "X",
+            9 to "IX",
+            5 to "V",
+            4 to "IV",
+            1 to "I"
     )
     var remainder = this
     var output = ""
@@ -59,13 +61,13 @@ fun Int.toTimeFormatted(): Map<Times, Int> {
     remainder -= minutes * 60
     val seconds = remainder
     return mapOf(
-        Times.YEARS to years,
-        Times.MONTHS to months,
-        Times.WEEKS to weeks,
-        Times.DAYS to days,
-        Times.HOURS to hours,
-        Times.MINUTES to minutes,
-        Times.SECONDS to seconds
+            Times.YEARS to years,
+            Times.MONTHS to months,
+            Times.WEEKS to weeks,
+            Times.DAYS to days,
+            Times.HOURS to hours,
+            Times.MINUTES to minutes,
+            Times.SECONDS to seconds
     )
 }
 
