@@ -17,11 +17,11 @@ allprojects {
 }
 
 group 'dev.jaims'
-version '2.0'
+version '2.0.1'
 
 subprojects {
     group 'dev.jaims.mcutils'
-    version '2.0'
+    version '2.0.1'
 
     publishing {
         publishing {
