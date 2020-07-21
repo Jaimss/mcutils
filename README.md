@@ -17,7 +17,7 @@ When making a Bukkit plugin, you can include the Bukkit module as a dependency, 
 Please see the wiki page for [including mcutils](https://github.com/Jaimss/mcutils/wiki/Including-mcutils).
 
 #### Examples
-For Usage Examples, please see the [wiki](https://github.com/Jaimss/Jaims-Utils/wiki). *(Coming Soon)*
+For Usage Examples, please see the [wiki](https://github.com/Jaimss/mcutils/wiki/Examples).
 
 #### Bugs / Feature Requests
 If you would like to report a bug, or request a feature, please open an [issue](https://github.com/Jaimss/Jaims-Utils/issues).
