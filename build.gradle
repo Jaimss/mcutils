@@ -24,6 +24,8 @@ allprojects {
     }
 }
 
+
+
 dokka {
     outputFormat = 'jekyll'
     outputDirectory = "$projectDir/docs"
