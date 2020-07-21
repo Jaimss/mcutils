@@ -10,8 +10,10 @@ import javax.print.attribute.standard.Severity
 
 /**
  * A simple chat colorization method.
- * @return The properly colored string. If a [player] is provided, that player will be used in PlaceholderAPI's
- * placeholders.
+ *
+ * @param player the player to use for PlaceholderAPI's placeholders. If null, it will be ignored and placeholders
+ * will not work
+ * @return The new string with placeholders and colors.
  */
 fun String.colorize(player: Player? = null): String {
     var result = ChatColor.translateAlternateColorCodes('&', this)
@@ -21,9 +23,10 @@ fun String.colorize(player: Player? = null): String {
 
 /**
  * A way to log messages to your plugins console much easier.
- * @param message - The message that you want to log to your plugins console.
- * @param severity - The [Severity] of the message. Can be used for warnings & errors in console.
- * This is an extension function of [org.bukkit.plugin.Plugin]
+ *
+ * @param message The message that you want to log to your plugins console.
+ * @param severity The [javax.print.attribute.standard.Severity] of the message. Can be used for warnings & errors
+ * in console.
  */
 fun Plugin.log(message: String, severity: Severity = Severity.REPORT) {
     when (severity) {
@@ -34,47 +37,57 @@ fun Plugin.log(message: String, severity: Severity = Severity.REPORT) {
 }
 
 /**
- * Sends [this] player a [message] that is colorized!
- * @param player - a player to use for PlaceholderAPI's placeholders
+ * Sends a message to a player or a commandsender.
+ *
+ * @param message the message to send the player
+ * @param player a player to use for PlaceholderAPI's placeholders
  */
 fun CommandSender.send(message: String, player: Player? = null) {
     this.sendMessage(message.colorize(player))
 }
 
 /**
- * Send multiple messsages at once
+ * Send multiple messsages at once to a commandsender or player
+ *
  * @param messages the list of messages to send
+ * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun CommandSender.send(messages: MutableList<String>) {
+fun CommandSender.send(messages: MutableList<String>, player: Player? = null) {
     for (m in messages) {
-        send(m)
+        send(m, player)
     }
 }
 
 /**
  * Send a message to a list of command senders
+ *
  * @param message the message to send to all the players
+ * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun MutableList<Player>.send(message: String) {
+fun MutableList<Player>.send(message: String, player: Player? = null) {
     for (cs in this) {
-        cs.send(message)
+        cs.send(message, player)
     }
 }
 
 /**
- * Send a list of messages
+ * Send a list of messages to a list of players
+ *
  * @param messages the list of messages to send
+ * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun MutableList<Player>.send(messages: MutableList<String>) {
+fun MutableList<Player>.send(messages: MutableList<String>, player: Player? = null) {
     for (m in messages) {
-        send(m)
+        send(m, player)
     }
 }
 
 /**
+ * Check if a player is within a certain radius of an [org.bukkit.Location]
+ *
  * @param location the location to check against
  * @param radius the radius to be in
- * @return if the player is within a certain amount of blocks of a location
+ * @return true if the player is in the radius, false if not
  */
 fun Player.inRadiusOfLocation(location: Location, radius: Int): Boolean {
     return this.location.y > location.y - radius &&
