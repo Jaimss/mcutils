@@ -4,6 +4,8 @@ import net.md_5.bungee.api.ChatColor
 import net.md_5.bungee.api.CommandSender
 import net.md_5.bungee.api.chat.TextComponent
 import net.md_5.bungee.api.connection.ProxiedPlayer
+import net.md_5.bungee.api.plugin.Command
+import net.md_5.bungee.api.plugin.Listener
 import net.md_5.bungee.api.plugin.Plugin
 import javax.print.attribute.standard.Severity
 
@@ -70,4 +72,22 @@ fun MutableList<ProxiedPlayer>.send(messages: MutableList<String>) {
     for (m in messages) {
         send(m)
     }
+}
+
+/**
+ * Register a command
+ *
+ * @param command the command class to register
+ */
+fun Plugin.register(command: Command) {
+    proxy.pluginManager.registerCommand(this, command)
+}
+
+/**
+ * Register a listener
+ *
+ * @param listener the listener class to register
+ */
+fun Plugin.register(listener: Listener) {
+    proxy.pluginManager.registerListener(this, listener)
 }

@@ -1,8 +1,10 @@
 package dev.jaims.mcutils
 
 import me.clip.placeholderapi.PlaceholderAPI
+import me.clip.placeholderapi.PlaceholderListener
 import org.bukkit.ChatColor
 import org.bukkit.Location
+import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.plugin.Plugin
@@ -19,6 +21,7 @@ fun String.colorize(player: Player? = null): String {
     var result = ChatColor.translateAlternateColorCodes('&', this)
     if (player != null) result = PlaceholderAPI.setPlaceholders(player, result)
     return result
+
 }
 
 /**
@@ -96,6 +99,26 @@ fun Player.inRadiusOfLocation(location: Location, radius: Int): Boolean {
             this.location.x < location.y + radius &&
             this.location.z > location.z - radius &&
             this.location.z < location.z + radius
+}
+
+/**
+ * Register a new command
+ *
+ * @param commandExecutor the command executor
+ * @param name the name of the command
+ */
+fun Plugin.register(commandExecutor: CommandExecutor, name: String) {
+    this.server.getPluginCommand(name)?.setExecutor(commandExecutor)
+            ?: log("There was an error registering the $name command.", Severity.WARNING)
+}
+
+/**
+ * Register a new listener
+ *
+ * @param listener the listener class
+ */
+fun Plugin.register(listener: PlaceholderListener) {
+    server.pluginManager.registerEvents(listener, this)
 }
 
 
