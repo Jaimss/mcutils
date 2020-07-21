@@ -14,33 +14,7 @@ This project was made with both Bungeecord and Bukkit in mind.
 When making a Bukkit plugin, you can include the Bukkit module as a dependency, and when making a Bungeecord plugin, you can include the Bungeecord dependency.
 
 #### Including mcutils
-[![Stable Release](https://img.shields.io/github/v/release/jaimss/mcutils?color=brightgreen&label=stable)](https://github.com/Jaimss/mcutils/releases) [![Latest Release](https://img.shields.io/github/v/release/jaimss/mcutils?color=ffaa00&include_prereleases&label=latest)](https://github.com/Jaimss/mcutils/releases)
-- Platform:
-    - `bungee` for Bungeecord Development
-    - `bukkit` for Bukkit Development
-
-One easy way to include this in your project is to use [jitpack](https://jitpack.io/#Jaimss/mcutils). You can simply navigate to the **releases** tab and select the latest from above.
-
-Alternatively you can download the latest [package](https://github.com/Jaimss/mcutils/packages) or the latest [release](https://github.com/Jaimss/mcutils/releases/latest) and install it to your maven local repository with the following command `./gradlew publishToMavenLocal`. Then you can add it as a dependency like below:
-###### Gradle (build.gradle)
-```gradle
-repositories {
-    mavenLocal()
-}
-dependencies {
-    implementation 'dev.jaims.mcutils:{platform}:{version}'
-}
-```
-###### Maven (pom.xml)
-```xml
-<dependencies>
-    <dependency>
-        <groupId>dev.jaims.mcutils</groupId>
-        <artifactId>{platform}</artifactId>
-        <version>{version}</version>
-    </dependency>
-</dependencies>
-```
+Please see the wiki page for [including mcutils](https://github.com/Jaimss/mcutils/wiki/Including-mcutils).
 
 #### Examples
 For Usage Examples, please see the [wiki](https://github.com/Jaimss/Jaims-Utils/wiki). *(Coming Soon)*
