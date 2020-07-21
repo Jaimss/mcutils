@@ -8,6 +8,10 @@ title: Times - mcutils
 
 `enum class Times`
 
+### Parameters
+
+`placeholder` - is the name that you can use in placeholders for lang filesa. its also just a lowercase version
+of the name
 A simple enum for the names of different time specs.
 
 ### Enum Values
@@ -22,7 +26,7 @@ A simple enum for the names of different time specs.
 
 ### Properties
 
-| [placeholder](placeholder.html) | `val placeholder: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [placeholder](placeholder.html) | is the name that you can use in placeholders for lang filesa. its also just a lowercase version of the name A simple enum for the names of different time specs.`val placeholder: `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 
 ### Functions
 

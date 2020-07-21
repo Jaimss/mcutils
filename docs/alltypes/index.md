@@ -66,6 +66,4 @@ Useful when getting user inputs to see if it is a UUID or a username
 
 ##### [dev.jaims.mcutils.Times](../dev.jaims.mcutils/-times/index.html)
 
-A simple enum for the names of different time specs.
-
 

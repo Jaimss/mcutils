@@ -20,6 +20,8 @@ The new string with placeholders and colors.
 
 `fun `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.colorize(): `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
 
+Turn a string into a colored string.
+
 **Return**
 a colorized string
 

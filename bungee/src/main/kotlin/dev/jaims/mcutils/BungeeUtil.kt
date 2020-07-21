@@ -8,6 +8,8 @@ import net.md_5.bungee.api.plugin.Plugin
 import javax.print.attribute.standard.Severity
 
 /**
+ * Turn a string into a colored string.
+ *
  * @return a colorized string
  */
 fun String.colorize(): String {
@@ -16,9 +18,9 @@ fun String.colorize(): String {
 
 /**
  * A way to log messages to your plugins console much easier.
+ *
  * @param message - The message that you want to log to your plugins console.
- * @param severity - The [Severity] of the message. Can be used for warnings & errors in console.
- * This is an extension function of [org.bukkit.plugin.Plugin]
+ * @param severity - The severity of the message. Can be used for warnings & errors in console.
  */
 fun Plugin.log(message: String, severity: Severity = Severity.REPORT) {
     when (severity) {
@@ -30,6 +32,8 @@ fun Plugin.log(message: String, severity: Severity = Severity.REPORT) {
 
 /**
  * Send a message to someone
+ *
+ * @param message the message to send
  */
 fun CommandSender.send(message: String) {
     sendMessage(*TextComponent.fromLegacyText(message.colorize()))
@@ -37,6 +41,7 @@ fun CommandSender.send(message: String) {
 
 /**
  * Send multiple messsages at once
+ *
  * @param messages the list of messages to send
  */
 fun CommandSender.send(messages: MutableList<String>) {
@@ -47,6 +52,8 @@ fun CommandSender.send(messages: MutableList<String>) {
 
 /**
  * Send a message to a list of command senders
+ *
+ * @param message the message to send
  */
 fun MutableList<ProxiedPlayer>.send(message: String) {
     for (cs in this) {
@@ -56,6 +63,7 @@ fun MutableList<ProxiedPlayer>.send(message: String) {
 
 /**
  * Send a list of messages
+ *
  * @param messages the list of messages to send
  */
 fun MutableList<ProxiedPlayer>.send(messages: MutableList<String>) {

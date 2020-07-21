@@ -9,5 +9,5 @@ title: getInputType - mcutils
 `fun `[`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)`.getInputType(): `[`InputType`](../-input-type/index.html)
 
 **Return**
-if [this](get-input-type/-this-.html) is a
+what type of [InputType](../-input-type/index.html) a certain string is
 

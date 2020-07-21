@@ -16,5 +16,4 @@ A way to log messages to your plugins console much easier.
 * The message that you want to log to your plugins console.
 
 `severity` -
-* The [Severity](https://docs.oracle.com/javase/6/docs/api/javax/print/attribute/standard/Severity.html) of the message. Can be used for warnings &amp; errors in console.
-This is an extension function of [org.bukkit.plugin.Plugin](#)
+* The severity of the message. Can be used for warnings &amp; errors in console.

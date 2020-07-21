@@ -4,7 +4,8 @@ import java.util.*
 
 /**
  * Turn an int into a Roman Numeral String
- * @return the correct roman numeral string for [this]
+ *
+ * @return the correct roman numeral string
  */
 fun Int.toRomanNumeral(): String {
     val map = mapOf(
@@ -35,6 +36,9 @@ fun Int.toRomanNumeral(): String {
 }
 
 /**
+ * Get the difference in time (seconds) between two [java.util.Date]
+ *
+ * @param date the old date
  * @return the seconds difference between two dates.
  */
 fun Date.getSecondsDifference(date: Date): Int {
@@ -43,7 +47,8 @@ fun Date.getSecondsDifference(date: Date): Int {
 
 /**
  * Get the different hours, minutes, seconds, etc. from a Integer in seconds
- * @return a map of the proper time units
+ *
+ * @return a map of times and ints where time is the [Times] and [Int] is the amount of that time
  */
 fun Int.toTimeFormatted(): Map<Times, Int> {
     var remainder = this
@@ -72,7 +77,7 @@ fun Int.toTimeFormatted(): Map<Times, Int> {
 }
 
 /**
- * @return if [this] is a
+ * @return what type of [InputType] a certain string is
  */
 fun String.getInputType(): InputType {
     if (matches("[A-Za-z0-9]{8}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{12}".toRegex()))
@@ -86,12 +91,15 @@ fun String.getInputType(): InputType {
  * Useful when getting user inputs to see if it is a UUID or a username
  */
 enum class InputType {
+
     UUID,
     SHORTUUID,
     NAME;
 }
 
 /**
+ * @param placeholder is the name that you can use in placeholders for lang filesa. its also just a lowercase version
+ * of the name
  * A simple enum for the names of different time specs.
  */
 enum class Times(val placeholder: String) {

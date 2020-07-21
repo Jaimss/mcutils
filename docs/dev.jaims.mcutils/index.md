@@ -10,7 +10,7 @@ title: dev.jaims.mcutils - mcutils
 
 | [InputType](-input-type/index.html) | A simple enum class for input types Useful when getting user inputs to see if it is a UUID or a username`enum class InputType` |
 | [ItemBuilder](-item-builder/index.html) | `class ItemBuilder : Supplier<ItemStack>` |
-| [Times](-times/index.html) | A simple enum for the names of different time specs.`enum class Times` |
+| [Times](-times/index.html) | `enum class Times` |
 
 ### Extensions for External Classes
 

@@ -11,5 +11,5 @@ title: toTimeFormatted - mcutils
 Get the different hours, minutes, seconds, etc. from a Integer in seconds
 
 **Return**
-a map of the proper time units
+a map of times and ints where time is the [Times](../-times/index.html) and [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) is the amount of that time
 
