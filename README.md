@@ -1,4 +1,4 @@
-# mcutils [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Jaimss/mcutils/blob/master/LICENSE)
+# mcutils [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Jaimss/mcutils/blob/master/LICENSE) [![Stable Release](https://img.shields.io/github/v/release/jaimss/mcutils?color=brightgreen&label=stable)](https://github.com/Jaimss/mcutils/releases) [![Latest Release](https://img.shields.io/github/v/release/jaimss/mcutils?color=ffaa00&include_prereleases&label=latest)](https://github.com/Jaimss/mcutils/releases) [![Discord](https://img.shields.io/discord/728826761411952703?label=discord&logo=discord)](https://discord.jaims.dev)
 A collection of Minecraft utilities for Bukkit/Bungeecord Plugin Development - so you don't need to create that Utils class every time ;)
 
 
