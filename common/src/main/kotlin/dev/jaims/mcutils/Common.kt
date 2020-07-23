@@ -1,5 +1,6 @@
 package dev.jaims.mcutils
 
+import java.net.URL
 import java.util.*
 
 /**

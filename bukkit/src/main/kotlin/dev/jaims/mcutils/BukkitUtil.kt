@@ -7,6 +7,7 @@ import org.bukkit.Location
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
 import javax.print.attribute.standard.Severity
 
@@ -117,7 +118,7 @@ fun Plugin.register(commandExecutor: CommandExecutor, name: String) {
  *
  * @param listener the listener class
  */
-fun Plugin.register(listener: PlaceholderListener) {
+fun Plugin.register(listener: Listener) {
     server.pluginManager.registerEvents(listener, this)
 }
 
