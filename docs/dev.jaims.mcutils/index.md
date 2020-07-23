@@ -15,6 +15,7 @@ title: dev.jaims.mcutils - mcutils
 ### Extensions for External Classes
 
 | [java.util.Date](java.util.-date/index.html) |  |
+| [java.util.UUID](java.util.-u-u-i-d/index.html) |  |
 | [kotlin.collections.MutableList](kotlin.collections.-mutable-list/index.html) |  |
 | [kotlin.Int](kotlin.-int/index.html) |  |
 | [kotlin.String](kotlin.-string/index.html) |  |

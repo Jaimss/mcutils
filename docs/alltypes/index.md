@@ -67,3 +67,8 @@ Useful when getting user inputs to see if it is a UUID or a username
 ##### [dev.jaims.mcutils.Times](../dev.jaims.mcutils/-times/index.html)
 
 
+| (extensions in package dev.jaims.mcutils)
+
+##### [java.util.UUID](../dev.jaims.mcutils/java.util.-u-u-i-d/index.html)
+
+
