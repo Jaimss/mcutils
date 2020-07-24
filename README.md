@@ -4,10 +4,9 @@ A collection of Minecraft utilities for Bukkit/Bungeecord Plugin Development - s
 
 #### Language Support
 This project uses Kotlin. The majority of these features make use of Kotlin's [extension functions](https://kotlinlang.org/docs/reference/extensions.html).
-This allows for you to use features like `Player#send("&3message")` and it will automatically color the message for you, however this does have some downsides.
-From my experience, Java does not accept Kotlin's extension functions as valid methods, so if you are using Java for your plugins, many of these features still will not work.
-Things like the `ItemBuilder`, however, still do work.
-**I strongly suggest giving Kotlin a try!**
+This allows for you to use features like `Player#send("&3message")` and it will automatically color the message for you, however this does have some downsides if you are working in Java.
+You will still be able to use all the methods provided, however it will be slightly different. Please see the [java usage](https://github.com/Jaimss/mcutils/wiki/Java-Usage) page on the wiki.
+**I strongly suggest giving Kotlin a try! It will make your life easier using this package, and it is all around better in my opinion.**
 
 #### Bungeecord v Bukkit
 This project was made with both Bungeecord and Bukkit in mind. 
@@ -18,6 +17,7 @@ Please see the wiki page for [including mcutils](https://github.com/Jaimss/mcuti
 
 #### Examples
 For Usage Examples, please see the [wiki](https://github.com/Jaimss/mcutils/wiki/Examples).
+For Java Usage, please see [java usage](https://github.com/Jaimss/mcutils/wiki/Java-Usage) on the wiki.
 
 #### Bugs / Feature Requests
 If you would like to report a bug, or request a feature, please open an [issue](https://github.com/Jaimss/Jaims-Utils/issues).
