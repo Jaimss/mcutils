@@ -29,7 +29,7 @@ allprojects {
 
 
 dokka {
-    outputFormat = 'javadoc'
+    outputFormat = 'jekyll'
     outputDirectory = "$projectDir/docs"
     subProjects = ["bukkit", "bungee", "common"]
 }
