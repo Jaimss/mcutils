@@ -1,7 +1,6 @@
 package dev.jaims.mcutils
 
 import me.clip.placeholderapi.PlaceholderAPI
-import me.clip.placeholderapi.PlaceholderListener
 import org.bukkit.ChatColor
 import org.bukkit.Location
 import org.bukkit.command.CommandExecutor
@@ -22,7 +21,6 @@ fun String.colorize(player: Player? = null): String {
     var result = ChatColor.translateAlternateColorCodes('&', this)
     if (player != null) result = PlaceholderAPI.setPlaceholders(player, result)
     return result
-
 }
 
 /**
