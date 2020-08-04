@@ -8,19 +8,35 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
+import java.util.regex.Pattern
 import javax.print.attribute.standard.Severity
 
 /**
- * A simple chat colorization method.
+ * A chat colorization util that supports hex.
+ * Loosely based off of https://gist.github.com/iGabyTM/7415263c2209653ede82457c289de697
  *
- * @param player the player to use for PlaceholderAPI's placeholders. If null, it will be ignored and placeholders
- * will not work
- * @return The new string with placeholders and colors.
+ * @param player the player to use for color codes
  */
 fun String.colorize(player: Player? = null): String {
-    var result = ChatColor.translateAlternateColorCodes('&', this)
-    if (player != null) result = PlaceholderAPI.setPlaceholders(player, result)
-    return result
+    val pattern = Pattern.compile(
+            "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
+            Pattern.CASE_INSENSITIVE
+    )
+
+    val matcher = pattern.matcher(this)
+    while (matcher.find()) {
+        try {
+            val color = net.md_5.bungee.api.ChatColor.of(matcher.group(1))
+            if (color != null) this.replace(matcher.group(), color.toString())
+        } catch (ignored: IllegalArgumentException) {
+        }
+    }
+    val final = when (player == null) {
+        true -> this
+        false -> PlaceholderAPI.setPlaceholders(player, this)
+    }
+    return ChatColor.translateAlternateColorCodes('&', final)
+
 }
 
 /**
