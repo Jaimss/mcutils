@@ -1,5 +1,7 @@
 $dokka.format:html
 $dokka.linkExtension:html
 
-dev.jaims.mcutils
+dev.jaims.mcutils.bukkit
+dev.jaims.mcutils.bungee
+dev.jaims.mcutils.common
 
