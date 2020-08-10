@@ -6,6 +6,7 @@ plugins {
 }
 
 allprojects {
+    apply plugin: 'org.jetbrains.dokka'
     apply plugin: 'maven-publish'
     apply plugin: 'org.jetbrains.kotlin.jvm'
     apply plugin: 'com.github.johnrengelman.shadow'
@@ -29,19 +30,7 @@ allprojects {
 
 dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
-    
 }
-
-//dokkaHtml {
-//    outputDirectory = "$projectDir/docs"
-//    subProjects = ["bukkit", "bungee", "common"]
-//}
-
-//dokka {
-//    outputFormat = 'jekyll'
-//    outputDirectory = "$projectDir/docs"
-//    subProjects = ["bukkit", "bungee", "common"]
-//}
 
 def ver = '2.1.0'
 
@@ -72,6 +61,8 @@ subprojects {
             }
         }
     }
+
+
 }
 
 compileKotlin {

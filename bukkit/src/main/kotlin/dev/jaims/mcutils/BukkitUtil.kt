@@ -8,9 +8,9 @@ import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.bukkit.event.Listener
 import org.bukkit.plugin.Plugin
+import org.bukkit.plugin.java.JavaPlugin
 import java.util.regex.Pattern
 import javax.print.attribute.standard.Severity
-
 /**
  * A chat colorization util that supports hex.
  * Loosely based off of https://gist.github.com/iGabyTM/7415263c2209653ede82457c289de697
