@@ -1,3 +1,3 @@
 dependencies {
-    implementation 'com.github.ascclemens:khttp:-SNAPSHOT'
+    compileOnly 'com.github.ascclemens:khttp:39f76b4186'
 }

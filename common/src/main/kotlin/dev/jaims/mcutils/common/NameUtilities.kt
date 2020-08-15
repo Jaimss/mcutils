@@ -10,7 +10,7 @@ import java.util.*
  */
 fun String.getUUID(): UUID? {
     val url = "https://playerdb.co/api/player/minecraft/$this"
-    val json = get(url).jsonObject
+    val json = khttp.get(url).jsonObject
     return if (!json.getBoolean("success")) null
     else {
         val playerObj: JSONObject = json.getJSONObject("data").getJSONObject("player")
@@ -25,7 +25,7 @@ fun String.getUUID(): UUID? {
  */
 fun UUID.getName(): String? {
     val url = "https://playerdb.co/api/player/minecraft/$this"
-    val json = get(url).jsonObject
+    val json = khttp.get(url).jsonObject
     return if (!json.getBoolean("success")) null
     else {
         val playerObj: JSONObject = json.getJSONObject("data").getJSONObject("player")

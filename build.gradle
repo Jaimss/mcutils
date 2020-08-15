@@ -1,18 +1,36 @@
 plugins {
+//    id 'maven'
     id 'maven-publish'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.72'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
     id 'com.github.johnrengelman.shadow' version '6.0.0'
     id 'org.jetbrains.dokka' version '1.4.0-rc'
 }
 
 allprojects {
+//    apply plugin: 'maven'
     apply plugin: 'org.jetbrains.dokka'
     apply plugin: 'maven-publish'
     apply plugin: 'org.jetbrains.kotlin.jvm'
     apply plugin: 'com.github.johnrengelman.shadow'
 
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            mavenLocal()
+        }
+    }
+
     shadowJar {
         archiveClassifier.set("")
+//        relocate('org.intellij.lang.annotations', 'dev.jaims.mcutils.libs.org.intellij.lang.annotations')
+//        relocate('org.jetbrains.annotations', 'dev.jaims.mcutils.libs.org.jetbrains.annotations')
+//        relocate('org.json', 'dev.jaims.mcutils.libs.org.json')
+//        relocate('kotlin', 'dev.jaims.mcutils.libs.kotlin')
+//        relocate('khttp', 'dev.jaims.mcutils.libs.khttp')
     }
 
     repositories {
@@ -24,7 +42,7 @@ allprojects {
     }
 
     dependencies {
-        compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.72"
+        compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     }
 }
 
@@ -32,7 +50,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = '2.1.0'
+def ver = '2.1.1'
 
 group 'dev.jaims'
 version ver
@@ -41,26 +59,6 @@ subprojects {
     group 'dev.jaims.mcutils'
     version ver
 
-    publishing {
-        publishing {
-            // Publish to Github Packages
-            repositories {
-                maven {
-                    name = "GitHubPackages"
-                    url = uri("https://maven.pkg.github.com/jaimss/mcutils")
-                    credentials {
-                        username = project.findProperty("github.username") ?: System.getenv("USERNAME")
-                        password = project.findProperty("github.token") ?: System.getenv("TOKEN")
-                    }
-                }
-            }
-            publications {
-                gpr(MavenPublication) {
-                    from components.java
-                }
-            }
-        }
-    }
 
 
 }
