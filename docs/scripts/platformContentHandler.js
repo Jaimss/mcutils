@@ -5,7 +5,7 @@ filteringContext = {
 }
 window.addEventListener('load', () => {
     document.querySelectorAll("div[data-platform-hinted]")
-        .forEach(elem => elem.addEventListener('click', (event) => togglePlatformDependent(event,elem)))
+        .forEach(elem => elem.addEventListener('click', (event) => togglePlatformDependent(event, elem)))
     document.querySelectorAll("div[tabs-section]")
         .forEach(elem => elem.addEventListener('click', (event) => toggleSectionsEventHandler(event)))
     const filterSection = document.getElementById('filter-section')
@@ -18,16 +18,16 @@ window.addEventListener('load', () => {
 })
 
 function handleAnchor() {
-    let searchForTab = function(element) {
-        if(element && element.hasAttribute) {
-            if(element.hasAttribute("data-togglable")) return element;
+    let searchForTab = function (element) {
+        if (element && element.hasAttribute) {
+            if (element.hasAttribute("data-togglable")) return element;
             else return searchForTab(element.parentNode)
         } else return null
     }
     let anchor = window.location.hash
     if (anchor != "") {
         anchor = anchor.substring(1)
-        let element = document.querySelector('a[data-name="' + anchor+'"]')
+        let element = document.querySelector('a[data-name="' + anchor + '"]')
         if (element) {
             let tab = searchForTab(element)
             if (tab) {
@@ -39,7 +39,7 @@ function handleAnchor() {
     }
 }
 
-function initTabs(){
+function initTabs() {
     document.querySelectorAll("div[tabs-section]")
         .forEach(element => {
             showCorrespondingTabBody(element)
@@ -49,13 +49,13 @@ function initTabs(){
     if (cached) {
         let parsed = JSON.parse(cached)
         let tab = document.querySelector('div[tabs-section] > button[data-togglable="' + parsed + '"]')
-        if(tab) {
+        if (tab) {
             toggleSections(tab)
         }
     }
 }
 
-function showCorrespondingTabBody(element){
+function showCorrespondingTabBody(element) {
     const key = element.querySelector("button[data-active]").getAttribute("data-togglable")
     document.querySelector(".tabs-section-body")
         .querySelector("div[data-togglable='" + key + "']")
@@ -63,14 +63,14 @@ function showCorrespondingTabBody(element){
 }
 
 function filterButtonHandler(event) {
-        if(event.target.tagName == "BUTTON" && event.target.hasAttribute("data-filter")) {
-            let sourceset = event.target.getAttribute("data-filter")
-            if(filteringContext.activeFilters.indexOf(sourceset) != -1) {
-                filterSourceset(sourceset)
-            } else {
-                unfilterSourceset(sourceset)
-            }
+    if (event.target.tagName == "BUTTON" && event.target.hasAttribute("data-filter")) {
+        let sourceset = event.target.getAttribute("data-filter")
+        if (filteringContext.activeFilters.indexOf(sourceset) != -1) {
+            filterSourceset(sourceset)
+        } else {
+            unfilterSourceset(sourceset)
         }
+    }
 }
 
 function initializeFiltering() {
@@ -85,7 +85,7 @@ function initializeFiltering() {
     if (cached) {
         let parsed = JSON.parse(cached)
         filteringContext.activeFilters = filteringContext.restrictedDependencies
-            .filter(q => parsed.indexOf(q) == -1 )
+            .filter(q => parsed.indexOf(q) == -1)
     } else {
         filteringContext.activeFilters = filteringContext.restrictedDependencies
     }
@@ -99,7 +99,7 @@ function filterSourceset(sourceset) {
 }
 
 function unfilterSourceset(sourceset) {
-    if(filteringContext.activeFilters.length == 0) {
+    if (filteringContext.activeFilters.length == 0) {
         filteringContext.activeFilters = filteringContext.dependencies[sourceset].concat([sourceset])
         refreshFiltering()
         filteringContext.dependencies[sourceset].concat([sourceset]).forEach(p => removeSourcesetFilterFromCache(p))
@@ -132,9 +132,9 @@ function removeSourcesetFilterFromCache(sourceset) {
 function toggleSections(target) {
     localStorage.setItem('active-tab', JSON.stringify(target.getAttribute("data-togglable")))
     const activateTabs = (containerClass) => {
-        for(const element of document.getElementsByClassName(containerClass)){
-            for(const child of element.children){
-                if(child.getAttribute("data-togglable") === target.getAttribute("data-togglable")){
+        for (const element of document.getElementsByClassName(containerClass)) {
+            for (const child of element.children) {
+                if (child.getAttribute("data-togglable") === target.getAttribute("data-togglable")) {
                     child.setAttribute("data-active", "")
                 } else {
                     child.removeAttribute("data-active")
@@ -147,8 +147,8 @@ function toggleSections(target) {
     activateTabs("tabs-section-body")
 }
 
-function toggleSectionsEventHandler(evt){
-    if(!evt.target.getAttribute("data-togglable")) return
+function toggleSectionsEventHandler(evt) {
+    if (!evt.target.getAttribute("data-togglable")) return
     toggleSections(evt.target)
 }
 
@@ -157,20 +157,18 @@ function togglePlatformDependent(e, container) {
     if (target.tagName != 'BUTTON') return;
     let index = target.getAttribute('data-toggle')
 
-    for(let child of container.children){
-        if(child.hasAttribute('data-toggle-list')){
-            for(let bm of child.children){
-                if(bm == target){
-                    bm.setAttribute('data-active',"")
-                } else if(bm != target) {
+    for (let child of container.children) {
+        if (child.hasAttribute('data-toggle-list')) {
+            for (let bm of child.children) {
+                if (bm == target) {
+                    bm.setAttribute('data-active', "")
+                } else if (bm != target) {
                     bm.removeAttribute('data-active')
                 }
             }
-        }
-        else if(child.getAttribute('data-togglable') == index) {
-           child.setAttribute('data-active',"")
-        }
-        else {
+        } else if (child.getAttribute('data-togglable') == index) {
+            child.setAttribute('data-active', "")
+        } else {
             child.removeAttribute('data-active')
         }
     }
@@ -196,17 +194,17 @@ function refreshPlatformTabs() {
             let firstAvailable = null
             p.childNodes.forEach(
                 element => {
-                    if(element.getAttribute("data-filterable-current") != ''){
-                        if( firstAvailable == null) {
+                    if (element.getAttribute("data-filterable-current") != '') {
+                        if (firstAvailable == null) {
                             firstAvailable = element
                         }
-                        if(element.hasAttribute("data-active")) {
+                        if (element.hasAttribute("data-active")) {
                             active = true;
                         }
                     }
                 }
             )
-            if( active == false && firstAvailable) {
+            if (active == false && firstAvailable) {
                 firstAvailable.click()
             }
         }
@@ -216,8 +214,8 @@ function refreshPlatformTabs() {
 function refreshFilterButtons() {
     document.querySelectorAll("#filter-section > button")
         .forEach(f => {
-            if(filteringContext.activeFilters.indexOf(f.getAttribute("data-filter")) != -1){
-                f.setAttribute("data-active","")
+            if (filteringContext.activeFilters.indexOf(f.getAttribute("data-filter")) != -1) {
+                f.setAttribute("data-active", "")
             } else {
                 f.removeAttribute("data-active")
             }

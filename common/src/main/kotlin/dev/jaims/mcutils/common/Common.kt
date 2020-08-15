@@ -1,6 +1,5 @@
 package dev.jaims.mcutils.common
 
-import java.net.URL
 import java.util.*
 
 /**
@@ -37,16 +36,6 @@ fun Int.toRomanNumeral(): String {
 }
 
 /**
- * Get the difference in time (seconds) between two [java.util.Date]
- *
- * @param date the old date
- * @return the seconds difference between two dates.
- */
-fun Date.getSecondsDifference(date: Date): Int {
-    return ((this.time - date.time) / 1000).toInt()
-}
-
-/**
  * Get the different hours, minutes, seconds, etc. from a Integer in seconds
  *
  * @return a map of times and ints where time is the [Times] and [Int] is the amount of that time
@@ -75,6 +64,16 @@ fun Int.toTimeFormatted(): Map<Times, Int> {
             Times.MINUTES to minutes,
             Times.SECONDS to seconds
     )
+}
+
+/**
+ * Get the difference in time (seconds) between two [java.util.Date]
+ *
+ * @param date the old date
+ * @return the seconds difference between two dates.
+ */
+fun Date.getSecondsDifference(date: Date): Int {
+    return ((this.time - date.time) / 1000).toInt()
 }
 
 /**
