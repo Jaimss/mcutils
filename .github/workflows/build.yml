@@ -15,6 +15,7 @@ jobs:
       - name: Run Code Tests
         uses: eskatos/gradle-command-action@v1
         with:
+          gradle-executable: ./gradlew
           arguments: test
       - name: Build Project
         uses: eskatos/gradle-command-action@v1
