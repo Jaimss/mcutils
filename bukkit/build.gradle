@@ -2,4 +2,6 @@ dependencies {
     implementation project(":common")
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT'
     compileOnly 'me.clip:placeholderapi:2.10.4'
+
+    testImplementation 'com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT'
 }

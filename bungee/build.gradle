@@ -2,5 +2,5 @@ dependencies {
     implementation project(":common")
     compileOnly 'io.github.waterfallmc:waterfall-api:1.16-R0.1-SNAPSHOT'
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    testImplementation 'io.github.waterfallmc:waterfall-api:1.16-R0.1-SNAPSHOT'
 }
-
