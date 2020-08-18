@@ -13,10 +13,10 @@ jobs:
         with:
           java-version: 8
       - name: Run Code Tests
-      - uses: eskatos/gradle-command-action@v1
+        uses: eskatos/gradle-command-action@v1
         with:
           arguments: test
       - name: Build Project
-      - uses: eskatos/gradle-command-action@v1
+        uses: eskatos/gradle-command-action@v1
         with:
           arguments: build
