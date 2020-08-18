@@ -17,16 +17,17 @@ fun String.colorize(player: Player? = null): String {
             Pattern.CASE_INSENSITIVE
     )
 
-    val matcher = pattern.matcher(this)
+    var final = this
+    val matcher = pattern.matcher(final)
     while (matcher.find()) {
         try {
-            val color = net.md_5.bungee.api.ChatColor.of(matcher.group(1))
-            if (color != null) this.replace(matcher.group(), color.toString())
+            val color = net.md_5.bungee.api.ChatColor.of(matcher.group().replace("<", "").replace(">", ""))
+            if (color != null) final = final.replace(matcher.group(), color.toString())
         } catch (ignored: IllegalArgumentException) {
         }
     }
-    val final = when (player == null) {
-        true -> this
+    final = when (player == null) {
+        true -> final
         false -> PlaceholderAPI.setPlaceholders(player, this)
     }
     return ChatColor.translateAlternateColorCodes('&', final)

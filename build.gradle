@@ -1,5 +1,4 @@
 plugins {
-//    id 'maven'
     id 'maven-publish'
     id 'org.jetbrains.kotlin.jvm' version '1.4.0'
     id 'com.github.johnrengelman.shadow' version '6.0.0'
@@ -7,7 +6,6 @@ plugins {
 }
 
 allprojects {
-//    apply plugin: 'maven'
     apply plugin: 'org.jetbrains.dokka'
     apply plugin: 'maven-publish'
     apply plugin: 'org.jetbrains.kotlin.jvm'
@@ -43,6 +41,7 @@ allprojects {
 
     dependencies {
         compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        testCompile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.4.0'
     }
 }
 

@@ -14,14 +14,17 @@ fun String.colorize(): String {
             Pattern.CASE_INSENSITIVE
     )
 
-    val matcher = pattern.matcher(this)
+    var final = this
+    val matcher = pattern.matcher(final)
     while (matcher.find()) {
         try {
-            val color = ChatColor.of(matcher.group(1))
-            if (color != null) this.replace(matcher.group(), color.toString())
+            val hex = matcher.group().replace("<", "").replace(">", "")
+            val color = ChatColor.of(hex)
+            if (color != null) final = final.replace(matcher.group(), color.toString())
         } catch (ignored: IllegalArgumentException) {
+            println("ERROR")
         }
     }
 
-    return ChatColor.translateAlternateColorCodes('&', this)
+    return ChatColor.translateAlternateColorCodes('&', final)
 }
