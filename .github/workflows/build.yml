@@ -1,0 +1,23 @@
+name: Check if it builds.
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  generatedocs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate docs
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 8
+      - name: Run Code Tests
+      - uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: test
+      - name: Build Project
+      - uses: eskatos/gradle-command-action@v1
+        with:
+          arguments: build
