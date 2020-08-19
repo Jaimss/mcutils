@@ -24,11 +24,6 @@ allprojects {
 
     shadowJar {
         archiveClassifier.set("")
-//        relocate('org.intellij.lang.annotations', 'dev.jaims.mcutils.libs.org.intellij.lang.annotations')
-//        relocate('org.jetbrains.annotations', 'dev.jaims.mcutils.libs.org.jetbrains.annotations')
-//        relocate('org.json', 'dev.jaims.mcutils.libs.org.json')
-//        relocate('kotlin', 'dev.jaims.mcutils.libs.kotlin')
-//        relocate('khttp', 'dev.jaims.mcutils.libs.khttp')
     }
 
     repositories {
@@ -57,7 +52,6 @@ version ver
 subprojects {
     group 'dev.jaims.mcutils'
     version ver
-
 
 
 }

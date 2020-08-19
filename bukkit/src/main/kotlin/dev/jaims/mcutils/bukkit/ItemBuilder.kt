@@ -8,15 +8,8 @@ import org.bukkit.inventory.meta.Damageable
 import java.util.function.Supplier
 
 /**
- * @param material The only required parameter. This will be the items material
- * @param amount the amount of the item
- * @param damage the damage on the item
- * @param name the name of the item
- * @param lore the lore of the item
- * @param enchantments the enchantments on the item
- * @param glow should the item have a glow or not
- * @param unbreakable should the item be breakable
- * @param itemflags the item flags on the item
+ * An item builder class. The only required parameter to initialize this is [material], then you can use the methods
+ * in the builder to build the item.
  */
 @Suppress("unused")
 class ItemBuilder(
@@ -95,9 +88,8 @@ class ItemBuilder(
     fun addLore(newlore: String) = apply { lore.add(newlore) }
 
     /**
-     * Add a map of enchantments to the item
+     * Add a map of [newenchantments] the enchantment map to add
      *
-     * @param newenchantments the enchantment map to add
      * @return an [ItemBuilder]
      */
     fun addEnchantments(newenchantments: Map<Enchantment, Int>) =
@@ -146,3 +138,6 @@ class ItemBuilder(
     fun addItemFlag(newitemflag: ItemFlag) = apply { itemflags.add(newitemflag) }
 
 }
+
+
+
