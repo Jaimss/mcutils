@@ -11,17 +11,6 @@ allprojects {
     apply plugin: 'org.jetbrains.kotlin.jvm'
     apply plugin: 'com.github.johnrengelman.shadow'
 
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.java
-            }
-        }
-        repositories {
-            mavenLocal()
-        }
-    }
-
     shadowJar {
         archiveClassifier.set("")
     }
@@ -53,6 +42,26 @@ subprojects {
     group 'dev.jaims.mcutils'
     version ver
 
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            mavenLocal()
+            maven {
+                def releasesRepoUrl = "https://repo.jaims.dev/repository/maven-releases/"
+                def snapshotsRepoUrl = "https://repo.jaims.dev/repository/maven-snapshots/"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+                credentials {
+                    username = project.property('sonatype.user')
+                    password = project.property('sonatype.password')
+                }
+            }
+        }
+    }
 
 }
 
