@@ -2,6 +2,7 @@ package dev.jaims.mcutils.tests
 
 import dev.jaims.mcutils.bukkit.colorize
 import net.md_5.bungee.api.ChatColor
+import org.bukkit.Bukkit
 import org.junit.Test
 import kotlin.test.assertEquals
 

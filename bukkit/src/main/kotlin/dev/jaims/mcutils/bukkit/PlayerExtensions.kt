@@ -76,14 +76,16 @@ fun Damageable.kill() {
 
 /**
  * Heal a [Damageable] entity.
+ * Default for [newHealth] is 20
  */
-fun Damageable.heal() {
-    health = 20.0
+fun Damageable.heal(newHealth: Double = 20.0) {
+    health = newHealth
 }
 
 /**
  * Feed a [Player]
+ * Default for [newFood] is 20
  */
-fun Player.feed() {
-    foodLevel = 20
+fun Player.feed(newFood: Int = 20) {
+    foodLevel = newFood
 }
