@@ -28,7 +28,7 @@ fun String.colorize(player: Player? = null): String {
     }
     final = when (player == null) {
         true -> final
-        false -> PlaceholderAPI.setPlaceholders(player, this)
+        false -> PlaceholderAPI.setPlaceholders(player, final)
     }
     return ChatColor.translateAlternateColorCodes('&', final)
 
