@@ -6,10 +6,10 @@ import org.bukkit.entity.Player
 import java.util.regex.Pattern
 
 /**
- * A chat colorization util that supports hex.
+ * A chat colorization util that supports hex and PlaceholderAPI placeholders for a [player] if one is provided.
  * Loosely based off of https://gist.github.com/iGabyTM/7415263c2209653ede82457c289de697
  *
- * @param player the player to use for color codes
+ * @sample dev.jaims.mcutils.tests.BukkitTests.chatColorizeTest()
  */
 fun String.colorize(player: Player? = null): String {
     val pattern = Pattern.compile(
@@ -28,7 +28,7 @@ fun String.colorize(player: Player? = null): String {
     }
     final = when (player == null) {
         true -> final
-        false -> PlaceholderAPI.setPlaceholders(player, this)
+        false -> PlaceholderAPI.setPlaceholders(player, final)
     }
     return ChatColor.translateAlternateColorCodes('&', final)
 
