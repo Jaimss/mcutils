@@ -33,3 +33,10 @@ fun String.colorize(player: Player? = null): String {
     return ChatColor.translateAlternateColorCodes('&', final)
 
 }
+
+/**
+ * Colorize a list of strings
+ */
+fun List<String>.colorize(player: Player? = null): List<String> {
+    return map { it.colorize(player) }
+}

@@ -1,4 +1,4 @@
-package dev.jaims.mcutils.bukkit
+package dev.jaims.mcutils.bukkit.item
 
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
