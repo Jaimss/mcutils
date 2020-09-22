@@ -1,17 +1,13 @@
 package dev.jaims.mcutils.bukkit.event
 
-import dev.jaims.mcutils.bukkit.send
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 import org.bukkit.event.EventPriority
 import org.bukkit.event.HandlerList
 import org.bukkit.event.Listener
-import org.bukkit.event.player.AsyncPlayerChatEvent
 import org.bukkit.plugin.Plugin
-import org.bukkit.plugin.java.JavaPlugin
 
 interface ListenerExt<T : Event> : Listener {
     fun onEvent(event: T)
@@ -51,16 +47,4 @@ inline fun <reified T : Event> Plugin.waitForEvent(
         }
     }
 
-}
-
-fun example(plugin: JavaPlugin, sender: Player) {
-    plugin.waitForEvent<AsyncPlayerChatEvent>(
-        timeoutMillis = 20 * 60,
-        action = {
-            it.player.send("Thanks for responding!")
-        },
-        predicate = {
-            sender.uniqueId == it.player.uniqueId
-        }
-    )
 }
