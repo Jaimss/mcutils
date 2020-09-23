@@ -141,6 +141,3 @@ class ItemBuilder(
     fun addItemFlag(newitemflag: ItemFlag) = apply { itemflags.add(newitemflag) }
 
 }
-
-
-
