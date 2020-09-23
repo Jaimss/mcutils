@@ -10,18 +10,21 @@ import java.util.function.Supplier
 /**
  * An item builder class. The only required parameter to initialize this is [material], then you can use the methods
  * in the builder to build the item.
+ *
+ * @see createItem
  */
 @Suppress("unused")
+@Deprecated("Replaced with a more idiomatic item builder. Since v2.1.2", replaceWith = ReplaceWith("createItem"))
 class ItemBuilder(
-        private var material: Material,
-        private var amount: Int = 1,
-        private var damage: Int = 0,
-        private var name: String? = null,
-        private var lore: MutableList<String> = mutableListOf(),
-        private var enchantments: MutableMap<Enchantment, Int> = mutableMapOf(),
-        private var glow: Boolean = false,
-        private var unbreakable: Boolean = false,
-        private var itemflags: MutableList<ItemFlag> = mutableListOf()
+    private var material: Material,
+    private var amount: Int = 1,
+    private var damage: Int = 0,
+    private var name: String? = null,
+    private var lore: MutableList<String> = mutableListOf(),
+    private var enchantments: MutableMap<Enchantment, Int> = mutableMapOf(),
+    private var glow: Boolean = false,
+    private var unbreakable: Boolean = false,
+    private var itemflags: MutableList<ItemFlag> = mutableListOf()
 ) : Supplier<ItemStack> {
 
     /**
@@ -93,7 +96,7 @@ class ItemBuilder(
      * @return an [ItemBuilder]
      */
     fun addEnchantments(newenchantments: Map<Enchantment, Int>) =
-            apply { for (e in newenchantments) enchantments.putIfAbsent(e.key, e.value) }
+        apply { for (e in newenchantments) enchantments.putIfAbsent(e.key, e.value) }
 
     /**
      * Add a single enchantment to an item
@@ -103,7 +106,7 @@ class ItemBuilder(
      * @return an [ItemBuilder]
      */
     fun addEnchantment(newenchantment: Enchantment, level: Int = 1) =
-            apply { enchantments.putIfAbsent(newenchantment, level) }
+        apply { enchantments.putIfAbsent(newenchantment, level) }
 
     /**
      * Set the item to glow or not
