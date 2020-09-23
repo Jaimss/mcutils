@@ -25,6 +25,7 @@ allprojects {
 
     dependencies {
         compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
         testCompile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.4.0'
     }
 }
@@ -33,7 +34,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = '2.1.1'
+def ver = '2.1.2'
 
 group 'dev.jaims'
 version ver

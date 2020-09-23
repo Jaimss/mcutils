@@ -34,6 +34,8 @@ fun Plugin.register(commandExecutor: CommandExecutor, name: String) {
  *
  * @param listener the listener class
  */
-fun Plugin.register(listener: Listener, plugin: Plugin = this) {
-    server.pluginManager.registerEvents(listener, plugin)
+fun Plugin.register(vararg listener: Listener, plugin: Plugin = this) {
+    for (l in listener) {
+        server.pluginManager.registerEvents(l, plugin)
+    }
 }

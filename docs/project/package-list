@@ -2,6 +2,8 @@ $dokka.format:html
 $dokka.linkExtension:html
 
 dev.jaims.mcutils.bukkit
+dev.jaims.mcutils.bukkit.event
+dev.jaims.mcutils.bukkit.item
 dev.jaims.mcutils.bungee
 dev.jaims.mcutils.common
 

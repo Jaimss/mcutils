@@ -21,7 +21,7 @@ fun CommandSender.send(message: String, player: Player? = null) {
  * @param messages the list of messages to send
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun CommandSender.send(messages: MutableList<String>, player: Player? = null) {
+fun CommandSender.send(messages: List<String>, player: Player? = null) {
     for (m in messages) {
         send(m, player)
     }
@@ -45,7 +45,7 @@ fun MutableList<Player>.send(message: String, player: Player? = null) {
  * @param messages the list of messages to send
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun MutableList<Player>.send(messages: MutableList<String>, player: Player? = null) {
+fun MutableList<Player>.send(messages: List<String>, player: Player? = null) {
     for (m in messages) {
         send(m, player)
     }
@@ -76,14 +76,16 @@ fun Damageable.kill() {
 
 /**
  * Heal a [Damageable] entity.
+ * Default for [newHealth] is 20
  */
-fun Damageable.heal() {
-    health = 20.0
+fun Damageable.heal(newHealth: Double = 20.0) {
+    health = newHealth
 }
 
 /**
  * Feed a [Player]
+ * Default for [newFood] is 20
  */
-fun Player.feed() {
-    foodLevel = 20
+fun Player.feed(newFood: Int = 20) {
+    foodLevel = newFood
 }
