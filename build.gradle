@@ -35,7 +35,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = '2.1.2'
+def ver = '2.1.2-SNAPSHOT'
 
 group 'dev.jaims'
 version ver

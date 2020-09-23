@@ -1,8 +1,9 @@
 package dev.jaims.mcutils.bukkit.event
 
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 import org.bukkit.event.Event
 import org.bukkit.event.EventPriority
 import org.bukkit.event.HandlerList
@@ -22,12 +23,12 @@ inline fun <reified T : Event> Plugin.waitForEvent(
     crossinline predicate: (T) -> Boolean = { true },
     crossinline timeoutAction: () -> Unit = {}
 ) {
-    runBlocking(Dispatchers.Default) {
+    GlobalScope.launch {
         // a listener for the event
         val listener = object : ListenerExt<T> {
             override fun onEvent(event: T) {
                 if (!predicate(event)) return
-                action(event)
+                action(event).also { cancel() }
             }
         }
         // register the event itself
