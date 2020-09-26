@@ -17,6 +17,9 @@ interface ListenerExt<T : Event> : Listener {
 
 /**
  * Wait for an event to occur, then unregiter (or a timeout)
+ * The timeout is specified with [timeoutTicks] and if it is reached, the [timeoutAction] will happen
+ * You can set [ignoreCancelled] and [priority], however both have normal defaults and can usually be left
+ * The event will only occur if [predicate] returns true, and when it does occur, the [action] will be run.
  */
 @Suppress("UNCHECKED_CAST")
 inline fun <reified T : Event> Plugin.waitForEvent(
