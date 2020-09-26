@@ -37,6 +37,4 @@ fun String.colorize(player: Player? = null): String {
 /**
  * Colorize a list of strings
  */
-fun List<String>.colorize(player: Player? = null): List<String> {
-    return map { it.colorize(player) }
-}
+fun List<String>.colorize(player: Player? = null): List<String> = map { it.colorize(player) }
