@@ -19,7 +19,7 @@ inline fun <reified T : CommandSender> Plugin.handleCommand(
     commandName: String,
     permission: String? = null,
     crossinline noPermissionmessage: (sender: CommandSender) -> Unit = { it.send("&cYou do not have permission!") },
-    crossinline senderInvalidType: (sender: CommandSender) -> Unit = { it.send("&cYou must be a ${T::class.java.simpleName} to run this command.!") },
+    crossinline senderInvalidType: (sender: CommandSender) -> Unit = { it.send("&cYou must be a ${T::class.java.simpleName.toLowerCase()} to run this command!") },
     crossinline body: (sender: T, args: Array<out String>) -> Unit
 ) {
     object : Command(commandName) {
