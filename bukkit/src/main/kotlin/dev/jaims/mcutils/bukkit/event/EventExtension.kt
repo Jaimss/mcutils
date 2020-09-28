@@ -22,7 +22,7 @@ interface ListenerExt<T : Event> : Listener {
  * The event will only occur if [predicate] returns true, and when it does occur, the [action] will be run.
  */
 @Suppress("UNCHECKED_CAST")
-inline fun <reified T : Event> Plugin.waitForEvent(
+inline fun <reified T: Event> Plugin.waitForEvent(
     timeoutTicks: Long = -1,
     ignoreCancelled: Boolean = false,
     priority: EventPriority = EventPriority.NORMAL,

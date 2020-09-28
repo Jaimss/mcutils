@@ -17,18 +17,21 @@ import javax.print.attribute.standard.Severity
  */
 inline fun <reified T : CommandSender> Plugin.handleCommand(
     commandName: String,
+    description: String = "",
+    usage: String = "&c/${commandName}",
+    aliases: List<String> = listOf(),
     permission: String? = null,
     crossinline noPermissionmessage: (sender: CommandSender) -> Unit = { it.send("&cYou do not have permission!") },
     crossinline senderInvalidType: (sender: CommandSender) -> Unit = { it.send("&cYou must be a ${T::class.java.simpleName.toLowerCase()} to run this command!") },
     crossinline body: (sender: T, args: Array<out String>) -> Unit
 ) {
-    object : Command(commandName) {
+    object : Command(commandName, description, usage, aliases) {
         override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
             if (sender !is T) {
                 senderInvalidType(sender)
                 return false
             }
-            if (!sender.hasPermission(permission.toString())) {
+            if (permission != null && !sender.hasPermission(permission)) {
                 noPermissionmessage(sender)
                 return false
             }
@@ -39,7 +42,7 @@ inline fun <reified T : CommandSender> Plugin.handleCommand(
 }
 
 /**
- * Based off of MF-CMD (to register to the plugin.yml)
+ * Based off of MF-CMD (to register each command without the plugin.yml)
  */
 fun Command.registerPluginYml(plugin: Plugin): Command {
     try {
