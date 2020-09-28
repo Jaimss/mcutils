@@ -87,4 +87,3 @@ inline fun <reified T : Event> Plugin.listenForEvent(
     )
 
 }
-

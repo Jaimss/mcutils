@@ -79,6 +79,7 @@ fun Damageable.kill(): Damageable = apply { health = 0.0 }
  */
 fun Damageable.heal(newHealth: Double = 20.0): Damageable = apply { health = newHealth }
 
+
 /**
  * Feed a [Player]
  * Default for [newFood] is 20
