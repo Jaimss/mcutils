@@ -3,6 +3,7 @@ package dev.jaims.mcutils.bukkit
 import org.bukkit.Location
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Damageable
+import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
 
 /**
@@ -33,7 +34,7 @@ fun CommandSender.send(messages: List<String>, player: Player? = null) {
  * @param message the message to send to all the players
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun MutableList<Player>.send(message: String, player: Player? = null) {
+fun <T : CommandSender> List<T>.send(message: String, player: Player? = null) {
     for (cs in this) {
         cs.send(message, player)
     }
@@ -45,7 +46,7 @@ fun MutableList<Player>.send(message: String, player: Player? = null) {
  * @param messages the list of messages to send
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun MutableList<Player>.send(messages: List<String>, player: Player? = null) {
+fun <T : CommandSender> MutableList<T>.send(messages: List<String>, player: Player? = null) {
     for (m in messages) {
         send(m, player)
     }
@@ -58,34 +59,29 @@ fun MutableList<Player>.send(messages: List<String>, player: Player? = null) {
  * @param radius the radius to be in
  * @return true if the player is in the radius, false if not
  */
-fun Player.inRadiusOfLocation(location: Location, radius: Int): Boolean {
-    return location.y > location.y - radius &&
-            location.y < location.y + radius &&
-            location.x > location.x - radius &&
-            location.x < location.y + radius &&
-            location.z > location.z - radius &&
-            location.z < location.z + radius
+fun Entity.inRadiusOfLocation(location: Location, radius: Int): Boolean {
+    return this.location.y > location.y - radius &&
+            this.location.y < location.y + radius &&
+            this.location.x > location.x - radius &&
+            this.location.x < location.y + radius &&
+            this.location.z > location.z - radius &&
+            this.location.z < location.z + radius
 }
 
 /**
  * Kill a [Damageable] entity
  */
-fun Damageable.kill() {
-    health = 0.0
-}
+fun Damageable.kill(): Damageable = apply { health = 0.0 }
 
 /**
  * Heal a [Damageable] entity.
  * Default for [newHealth] is 20
  */
-fun Damageable.heal(newHealth: Double = 20.0) {
-    health = newHealth
-}
+fun Damageable.heal(newHealth: Double = 20.0): Damageable = apply { health = newHealth }
+
 
 /**
  * Feed a [Player]
  * Default for [newFood] is 20
  */
-fun Player.feed(newFood: Int = 20) {
-    foodLevel = newFood
-}
+fun Player.feed(newFood: Int = 20): Player = apply { foodLevel = newFood }

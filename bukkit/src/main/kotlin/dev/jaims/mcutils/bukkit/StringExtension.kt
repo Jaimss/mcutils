@@ -13,8 +13,8 @@ import java.util.regex.Pattern
  */
 fun String.colorize(player: Player? = null): String {
     val pattern = Pattern.compile(
-            "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
-            Pattern.CASE_INSENSITIVE
+        "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
+        Pattern.CASE_INSENSITIVE
     )
 
     var final = this
@@ -37,6 +37,4 @@ fun String.colorize(player: Player? = null): String {
 /**
  * Colorize a list of strings
  */
-fun List<String>.colorize(player: Player? = null): List<String> {
-    return map { it.colorize(player) }
-}
+fun List<String>.colorize(player: Player? = null): List<String> = map { it.colorize(player) }

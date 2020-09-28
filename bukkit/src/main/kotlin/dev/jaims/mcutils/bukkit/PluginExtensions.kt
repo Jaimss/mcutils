@@ -25,8 +25,10 @@ fun Plugin.log(message: Any?, severity: Severity = Severity.REPORT) {
  */
 fun Plugin.register(commandExecutor: CommandExecutor, name: String) {
     this.server.getPluginCommand(name)?.setExecutor(commandExecutor)
-            ?: log("There was an error registering the $name command. Make sure it is in the plugin.yml!",
-                    Severity.WARNING)
+        ?: log(
+            "There was an error registering the $name command. Make sure it is in the plugin.yml!",
+            Severity.WARNING
+        )
 }
 
 /**

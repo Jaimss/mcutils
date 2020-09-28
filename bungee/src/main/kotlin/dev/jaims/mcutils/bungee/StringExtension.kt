@@ -28,3 +28,5 @@ fun String.colorize(): String {
 
     return ChatColor.translateAlternateColorCodes('&', final)
 }
+
+fun List<String>.colorize(): List<String> = map { it.colorize() }

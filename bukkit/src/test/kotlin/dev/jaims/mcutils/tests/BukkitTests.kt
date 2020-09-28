@@ -18,9 +18,4 @@ class BukkitTests {
         )
     }
 
-    @Test
-    fun other(plugin: JavaPlugin) {
-        plugin.waitForEvent<>()
-    }
-
 }

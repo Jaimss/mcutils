@@ -24,8 +24,10 @@ fun Plugin.log(message: Any?, severity: Severity = Severity.REPORT) {
  *
  * @param command the command class to register
  */
-fun Plugin.register(command: Command) {
-    proxy.pluginManager.registerCommand(this, command)
+fun Plugin.register(vararg command: Command) {
+    command.forEach {
+        proxy.pluginManager.registerCommand(this, it)
+    }
 }
 
 /**
@@ -33,6 +35,8 @@ fun Plugin.register(command: Command) {
  *
  * @param listener the listener class to register
  */
-fun Plugin.register(listener: Listener) {
-    proxy.pluginManager.registerListener(this, listener)
+fun Plugin.register(vararg listener: Listener) {
+    listener.forEach {
+        proxy.pluginManager.registerListener(this, it)
+    }
 }

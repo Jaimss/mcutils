@@ -2,7 +2,6 @@ package dev.jaims.mcutils.bungee
 
 import net.md_5.bungee.api.CommandSender
 import net.md_5.bungee.api.chat.TextComponent
-import net.md_5.bungee.api.connection.ProxiedPlayer
 
 /**
  * Send a message to someone
@@ -29,7 +28,7 @@ fun CommandSender.send(messages: MutableList<String>) {
  *
  * @param message the message to send
  */
-fun MutableList<ProxiedPlayer>.send(message: String) {
+fun <T : CommandSender> MutableList<T>.send(message: String) {
     for (cs in this) {
         cs.send(message)
     }
@@ -40,7 +39,7 @@ fun MutableList<ProxiedPlayer>.send(message: String) {
  *
  * @param messages the list of messages to send
  */
-fun MutableList<ProxiedPlayer>.send(messages: MutableList<String>) {
+fun <T : CommandSender> MutableList<T>.send(messages: MutableList<String>) {
     for (m in messages) {
         send(m)
     }
