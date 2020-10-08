@@ -91,7 +91,6 @@ fun String.getInputType(): InputType {
  * Useful when getting user inputs to see if it is a UUID or a username
  */
 enum class InputType {
-
     UUID,
     SHORTUUID,
     NAME;

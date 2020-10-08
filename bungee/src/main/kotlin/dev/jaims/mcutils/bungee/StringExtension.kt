@@ -10,23 +10,22 @@ import java.util.regex.Pattern
  */
 fun String.colorize(): String {
     val pattern = Pattern.compile(
-            "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
-            Pattern.CASE_INSENSITIVE
+        "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
+        Pattern.CASE_INSENSITIVE
     )
 
-    var final = this
-    val matcher = pattern.matcher(final)
+    var mutString = this
+    val matcher = pattern.matcher(mutString)
     while (matcher.find()) {
         try {
             val hex = matcher.group().replace("<", "").replace(">", "")
             val color = ChatColor.of(hex)
-            if (color != null) final = final.replace(matcher.group(), color.toString())
+            if (color != null) mutString = mutString.replace(matcher.group(), color.toString())
         } catch (ignored: IllegalArgumentException) {
-            println("ERROR")
         }
     }
 
-    return ChatColor.translateAlternateColorCodes('&', final)
+    return ChatColor.translateAlternateColorCodes('&', mutString)
 }
 
 fun List<String>.colorize(): List<String> = map { it.colorize() }
