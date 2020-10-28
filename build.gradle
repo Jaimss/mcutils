@@ -24,7 +24,8 @@ allprojects {
     }
 
     dependencies {
-        compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        compileOnly 'com.github.ascclemens:khttp:0.1.0'
 
         testCompile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.4.0'
     }
