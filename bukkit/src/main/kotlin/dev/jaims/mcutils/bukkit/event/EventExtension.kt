@@ -53,7 +53,6 @@ inline fun <reified T: Event> Plugin.waitForEvent(
     if (timeoutTicks > 0) {
         task = sync(this, delayTicks = timeoutTicks) { HandlerList.unregisterAll(listener); timeoutAction() }
     }
-
 }
 
 /**
