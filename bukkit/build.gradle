@@ -1,5 +1,7 @@
 dependencies {
     implementation project(":common")
+    implementation "me.mattstudios:mf-msg-bukkit:2.0.1"
+
     compileOnly 'com.destroystokyo.paper:paper-api:1.16.1-R0.1-SNAPSHOT'
     compileOnly 'me.clip:placeholderapi:2.10.4'
 

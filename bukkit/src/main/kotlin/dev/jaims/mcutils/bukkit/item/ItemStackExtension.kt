@@ -7,7 +7,6 @@ import org.bukkit.inventory.ItemFlag
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
 
-
 /**
  * create an [ItemStack] from a [material] with [features]
  */

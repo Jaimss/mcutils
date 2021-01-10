@@ -1,4 +1,3 @@
 dependencies {
-    compileOnly 'com.github.ascclemens:khttp:39f76b4186'
     testImplementation(project(":common"))
 }

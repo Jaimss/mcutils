@@ -8,8 +8,6 @@ import java.util.regex.Pattern
 /**
  * A chat colorization util that supports hex and PlaceholderAPI placeholders for a [player] if one is provided.
  * Loosely based off of https://gist.github.com/iGabyTM/7415263c2209653ede82457c289de697
- *
- * @sample dev.jaims.mcutils.tests.BukkitTests.chatColorizeTest()
  */
 fun String.colorize(player: Player? = null): String {
     val pattern = Pattern.compile(
@@ -17,20 +15,17 @@ fun String.colorize(player: Player? = null): String {
         Pattern.CASE_INSENSITIVE
     )
 
-    var final = this
-    val matcher = pattern.matcher(final)
+    var message = this
+    val matcher = pattern.matcher(message)
     while (matcher.find()) {
         try {
             val color = net.md_5.bungee.api.ChatColor.of(matcher.group().replace("<", "").replace(">", ""))
-            if (color != null) final = final.replace(matcher.group(), color.toString())
+            if (color != null) message = message.replace(matcher.group(), color.toString())
         } catch (ignored: IllegalArgumentException) {
         }
     }
-    final = when (player == null) {
-        true -> final
-        false -> PlaceholderAPI.setPlaceholders(player, final)
-    }
-    return ChatColor.translateAlternateColorCodes('&', final)
+    message = PlaceholderAPI.setPlaceholders(player, message)
+    return ChatColor.translateAlternateColorCodes('&', message)
 
 }
 

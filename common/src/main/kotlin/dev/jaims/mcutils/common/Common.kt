@@ -1,6 +1,23 @@
 package dev.jaims.mcutils.common
 
+import khttp.post
 import java.util.*
+
+/**
+ * Post a [String] to https://paste.jaims.dev. Useful for sending console logs or error messages.
+ */
+fun String.toPastebin(): String {
+    val url = "https://paste.jaims.dev/documents"
+    val r = post(
+            url,
+            mapOf(
+                    "Content-Type" to "text/plain; charset=utf-8",
+                    "Content-Length" to this.encodeToByteArray().size.toString()
+            ),
+            data = this,
+    )
+    return "https://paste.jaims.dev/${r.jsonObject["key"]}"
+}
 
 /**
  * Turn an int into a Roman Numeral String
@@ -91,7 +108,6 @@ fun String.getInputType(): InputType {
  * Useful when getting user inputs to see if it is a UUID or a username
  */
 enum class InputType {
-
     UUID,
     SHORTUUID,
     NAME;
