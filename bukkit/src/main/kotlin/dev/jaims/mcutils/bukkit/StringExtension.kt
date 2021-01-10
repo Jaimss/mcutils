@@ -15,20 +15,17 @@ fun String.colorize(player: Player? = null): String {
         Pattern.CASE_INSENSITIVE
     )
 
-    var mutString = this
-    val matcher = pattern.matcher(mutString)
+    var message = this
+    val matcher = pattern.matcher(message)
     while (matcher.find()) {
         try {
             val color = net.md_5.bungee.api.ChatColor.of(matcher.group().replace("<", "").replace(">", ""))
-            if (color != null) mutString = mutString.replace(matcher.group(), color.toString())
+            if (color != null) message = message.replace(matcher.group(), color.toString())
         } catch (ignored: IllegalArgumentException) {
         }
     }
-    mutString = when (player == null) {
-        true -> mutString
-        false -> PlaceholderAPI.setPlaceholders(player, mutString)
-    }
-    return ChatColor.translateAlternateColorCodes('&', mutString)
+    message = PlaceholderAPI.setPlaceholders(player, message)
+    return ChatColor.translateAlternateColorCodes('&', message)
 
 }
 
