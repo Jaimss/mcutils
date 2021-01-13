@@ -13,6 +13,7 @@ allprojects {
 
     shadowJar {
         archiveClassifier.set("")
+        relocate 'me.mattstudios.mfmsg', 'dev.jaims.mcutils.libs.mfmsg'
     }
 
     repositories {

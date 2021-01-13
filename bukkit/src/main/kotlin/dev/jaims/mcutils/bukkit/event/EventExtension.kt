@@ -65,3 +65,35 @@ inline fun <reified T : Event> KotlinPlugin.waitForEvent(
         task = sync(this, delayTicks = timeoutTicks) { HandlerList.unregisterAll(listener); timeoutAction() }
     }
 }
+
+/**
+ * Listen for an event as long as [this] plugin is Enabled. The [predicate] is optional. It can be nice for quick events, but it also default to true
+ * to allow for customization.
+ * You can also set [ignoreCancelled] and [priority]
+ * When this is detected, if the [predicate] is matched, the [action] is run
+ */
+@Suppress("UNCHECKED_CAST")
+inline fun <reified T : Event> KotlinPlugin.listenForEvent(
+    ignoreCancelled: Boolean = false,
+    priority: EventPriority = EventPriority.NORMAL,
+    crossinline predicate: (T) -> Boolean = { true },
+    crossinline action: (T) -> Unit
+) {
+
+    val listener = object : ListenerExt<T> {
+        override fun onEvent(event: T) {
+            if (!predicate(event)) return
+            action(event)
+        }
+    }
+
+    server.pluginManager.registerEvent(
+        T::class.java,
+        listener,
+        priority,
+        { l, e -> (l as ListenerExt<T>).onEvent(e as T) },
+        this,
+        ignoreCancelled
+    )
+
+}
