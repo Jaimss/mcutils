@@ -17,7 +17,6 @@ abstract class KotlinPlugin : JavaPlugin()
     {
         val millis = measureTimeMillis {
             PluginDependencyManager.of(this).loadAllDependencies().join()
-            "".log()
             "&aEnabling ${description.name} (v${description.version})...".log()
 
             // register managers first
@@ -27,8 +26,6 @@ abstract class KotlinPlugin : JavaPlugin()
 
             // call our enable code
             enable()
-
-            "".log()
         }
         "&a${description.name} (v${description.version}) enabled in &e$millis &ams!".log()
     }
@@ -41,14 +38,10 @@ abstract class KotlinPlugin : JavaPlugin()
     override fun onDisable()
     {
         val millis = measureTimeMillis {
-            "".log()
             "&cDisabling ${description.name} (v${description.version})...".log()
 
             // call the disable method
             disable()
-
-
-            "".log()
         }
         "&c${description.name} (v${description.version}) disabled in &e$millis &cms.".log()
     }
