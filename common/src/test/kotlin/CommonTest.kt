@@ -2,54 +2,58 @@ import dev.jaims.mcutils.common.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class CommonTest {
+class CommonTest
+{
 
     @Test
-    fun romanNumeralTest() {
+    fun romanNumeralTest()
+    {
         assertEquals("X", 10.toRomanNumeral())
     }
 
     @Test
-    fun timeFormattedTest() {
+    fun timeFormattedTest()
+    {
         assertEquals(
-                mapOf(
-                        Times.YEARS to 0,
-                        Times.MONTHS to 0,
-                        Times.WEEKS to 0,
-                        Times.DAYS to 0,
-                        Times.HOURS to 0,
-                        Times.MINUTES to 0,
-                        Times.SECONDS to 10
-                ),
-                10.toTimeFormatted()
+            mapOf(
+                Times.YEARS to 0,
+                Times.MONTHS to 0,
+                Times.WEEKS to 0,
+                Times.DAYS to 0,
+                Times.HOURS to 0,
+                Times.MINUTES to 0,
+                Times.SECONDS to 10
+            ),
+            10.toTimeFormatted()
         )
         assertEquals(
-                mapOf(
-                        Times.YEARS to 0,
-                        Times.MONTHS to 0,
-                        Times.WEEKS to 0,
-                        Times.DAYS to 0,
-                        Times.HOURS to 1,
-                        Times.MINUTES to 0,
-                        Times.SECONDS to 10
-                ),
-                3610.toTimeFormatted()
+            mapOf(
+                Times.YEARS to 0,
+                Times.MONTHS to 0,
+                Times.WEEKS to 0,
+                Times.DAYS to 0,
+                Times.HOURS to 1,
+                Times.MINUTES to 0,
+                Times.SECONDS to 10
+            ),
+            3610.toTimeFormatted()
         )
     }
 
     @Test
-    fun getInputTypeTest() {
+    fun getInputTypeTest()
+    {
         assertEquals(
-                InputType.UUID,
-                "ca606d09-dced-4241-94a6-eaa7d4525d9f".getInputType()
+            InputType.UUID,
+            "ca606d09-dced-4241-94a6-eaa7d4525d9f".getInputType()
         )
         assertEquals(
-                InputType.SHORTUUID,
-                "ca606d09dced424194a6eaa7d4525d9f".getInputType()
+            InputType.SHORTUUID,
+            "ca606d09dced424194a6eaa7d4525d9f".getInputType()
         )
         assertEquals(
-                InputType.NAME,
-                "Jaimss".getInputType()
+            InputType.NAME,
+            "Jaimss".getInputType()
         )
     }
 }

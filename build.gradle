@@ -13,25 +13,19 @@ allprojects {
 
     shadowJar {
         archiveClassifier.set("")
-        relocate 'me.mattstudios.mfmsg', 'dev.jaims.mcutils.libs.mfmsg'
     }
 
     repositories {
         mavenCentral()
-        jcenter()
-        maven { url 'https://jitpack.io' }
-        maven { url 'https://papermc.io/repo/repository/maven-public/' }
-        maven { url 'https://repo.extendedclip.com/content/repositories/placeholderapi/' }
-        maven { url 'https://repo.mattstudios.me/artifactory/public' }
+        maven { url 'https://repo.jaims.dev/repository/all/' }
     }
 
     dependencies {
-        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-        compileOnly 'com.github.ascclemens:khttp:0.1.0'
+        compileOnly 'me.bristermitten:pdm:0.0.30'
+        compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        compileOnly 'com.github.jkcclemens:khttp:39f76b4186'
 
-        implementation "me.mattstudios:mf-msg-bukkit:2.0.1"
-
-        testCompile group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.4.0'
+        testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.4.0'
     }
 }
 
@@ -39,7 +33,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = '2.1.4'
+def ver = '2.2.3'
 
 group 'dev.jaims'
 version ver

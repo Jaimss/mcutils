@@ -11,8 +11,10 @@ import javax.print.attribute.standard.Severity
  * @param message - The message that you want to log to your plugins console.
  * @param severity - The severity of the message. Can be used for warnings & errors in console.
  */
-fun Plugin.log(message: Any?, severity: Severity = Severity.REPORT) {
-    when (severity) {
+fun Plugin.log(message: Any?, severity: Severity = Severity.REPORT)
+{
+    when (severity)
+    {
         Severity.REPORT -> this.logger.info(message.toString().colorize())
         Severity.ERROR -> this.logger.severe(message.toString().colorize())
         Severity.WARNING -> this.logger.warning(message.toString().colorize())
@@ -24,7 +26,8 @@ fun Plugin.log(message: Any?, severity: Severity = Severity.REPORT) {
  *
  * @param command the command class to register
  */
-fun Plugin.register(vararg command: Command) {
+fun Plugin.register(vararg command: Command)
+{
     command.forEach {
         proxy.pluginManager.registerCommand(this, it)
     }
@@ -35,7 +38,8 @@ fun Plugin.register(vararg command: Command) {
  *
  * @param listener the listener class to register
  */
-fun Plugin.register(vararg listener: Listener) {
+fun Plugin.register(vararg listener: Listener)
+{
     listener.forEach {
         proxy.pluginManager.registerListener(this, it)
     }
