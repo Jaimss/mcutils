@@ -96,7 +96,7 @@ fun Int.toTimeFormatted(): Map<Times, Int>
  */
 fun Date.getSecondsDifference(date: Date): Int
 {
-    return ((this.time - date.time) / 1000).toInt()
+    return ((date.time - time) / 1000).toInt()
 }
 
 /**
