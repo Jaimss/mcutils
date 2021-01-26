@@ -8,8 +8,8 @@ import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
 import javax.print.attribute.standard.Severity
 
-interface CommandHandler : CommandExecutor, TabExecutor
-{
+@Suppress("unused")
+interface CommandHandler : CommandExecutor, TabExecutor {
 
     /**
      * The method to execute a command.
@@ -35,33 +35,26 @@ interface CommandHandler : CommandExecutor, TabExecutor
     /**
      * override the default `onCommand`. it will call the new [execute] method
      */
-    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean
-    {
+    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         // send args as alist
         val newArgs = args.toMutableList()
 
         // determine if its silent
-        // if ALERT_TARGET = false, they dont want to alert the target, so silent is true
-        // if the args contains "-s", they dont want to alert, so silent is true and we remove "-s"
-        var silent = false
-        if (newArgs.remove("-s")) silent = true
-        if (newArgs.remove("--silent")) silent = true
-
+        val silent = newArgs.remove("-s") || newArgs.remove("--silent")
         // confirmation
-        var isConfirmation = false
-        if (newArgs.remove("-c")) isConfirmation = true
-        if (newArgs.remove("--confirm")) isConfirmation = true
+        val isConfirmation = newArgs.remove("-c") || newArgs.remove("--confirm")
+        // bypass cooldown for commands with a cooldown on them
+        val bypassCooldown = newArgs.remove("--bypass-cooldown") || newArgs.remove("-bc")
 
         // execute and return true cause we handle all messages
-        execute(sender, newArgs, CommandProperties(silent, isConfirmation))
+        execute(sender, newArgs, CommandProperties(silent, isConfirmation, bypassCooldown))
         return true
     }
 
     /**
      * A method to register a [CommandHandler]
      */
-    fun register(plugin: KotlinPlugin)
-    {
+    fun register(plugin: KotlinPlugin) {
         val cmd = plugin.getCommand(commandName) ?: run {
             "Command with name $commandName is not in the plugin.yml!".log(Severity.ERROR)
             return
@@ -77,8 +70,7 @@ interface CommandHandler : CommandExecutor, TabExecutor
         command: Command,
         alias: String,
         args: Array<out String>
-    ): MutableList<String>
-    {
+    ): MutableList<String> {
         return mutableListOf()
     }
 
@@ -90,4 +82,5 @@ interface CommandHandler : CommandExecutor, TabExecutor
 data class CommandProperties(
     val silent: Boolean,
     val isConfirmation: Boolean,
+    val bypassCooldown: Boolean
 )

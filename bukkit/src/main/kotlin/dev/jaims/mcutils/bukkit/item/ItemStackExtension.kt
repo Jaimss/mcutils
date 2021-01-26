@@ -10,24 +10,21 @@ import org.bukkit.inventory.meta.ItemMeta
 /**
  * create an [ItemStack] from a [material] with [features]
  */
-inline fun createItem(material: Material, features: ItemStack.() -> Unit): ItemStack
-{
+inline fun createItem(material: Material, features: ItemStack.() -> Unit): ItemStack {
     return ItemStack(material).apply(features)
 }
 
 /**
  * create an [ItemStack] from a copy of another [itemStack] with [features]
  */
-inline fun createItem(itemStack: ItemStack, features: ItemStack.() -> Unit): ItemStack
-{
+inline fun createItem(itemStack: ItemStack, features: ItemStack.() -> Unit): ItemStack {
     return ItemStack(itemStack).apply(features)
 }
 
 /**
  * Modify the item meta of a [ItemStack]
  */
-inline fun ItemStack.meta(meta: ItemMeta.() -> Unit)
-{
+inline fun ItemStack.meta(meta: ItemMeta.() -> Unit) {
     itemMeta = itemMeta.apply(meta)
 }
 
@@ -36,8 +33,7 @@ inline fun ItemStack.meta(meta: ItemMeta.() -> Unit)
  */
 var ItemMeta.loreString: String
     get() = lore?.joinToString("\n")?.colorize() ?: ""
-    set(value)
-    {
+    set(value) {
         lore = value.split("\n").colorize()
     }
 
@@ -55,14 +51,11 @@ var ItemMeta.name: String
  */
 var ItemMeta.glow: Boolean
     get() = hasEnchant(Enchantment.WATER_WORKER) && hasItemFlag(ItemFlag.HIDE_ENCHANTS)
-    set(value)
-    {
-        if (value)
-        {
+    set(value) {
+        if (value) {
             addItemFlags(ItemFlag.HIDE_ENCHANTS)
             addEnchant(Enchantment.WATER_WORKER, 1, false)
-        } else
-        {
+        } else {
             removeItemFlags(ItemFlag.HIDE_ENCHANTS)
             removeEnchant(Enchantment.WATER_WORKER)
         }
@@ -74,14 +67,11 @@ var ItemMeta.glow: Boolean
  */
 var ItemMeta.unbreakable: Boolean
     get() = hasItemFlag(ItemFlag.HIDE_UNBREAKABLE) && isUnbreakable
-    set(value)
-    {
-        if (value)
-        {
+    set(value) {
+        if (value) {
             isUnbreakable = true
             addItemFlags(ItemFlag.HIDE_UNBREAKABLE)
-        } else
-        {
+        } else {
             isUnbreakable = false
             removeItemFlags(ItemFlag.HIDE_UNBREAKABLE)
         }

@@ -12,8 +12,7 @@ import org.bukkit.entity.Player
  * @param message the message to send the player
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun CommandSender.send(message: String, player: Player? = null)
-{
+fun CommandSender.send(message: String, player: Player? = null) {
     this.sendMessage(message.colorize(player))
 }
 
@@ -23,10 +22,8 @@ fun CommandSender.send(message: String, player: Player? = null)
  * @param messages the list of messages to send
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun CommandSender.send(messages: List<String>, player: Player? = null)
-{
-    for (m in messages)
-    {
+fun CommandSender.send(messages: List<String>, player: Player? = null) {
+    for (m in messages) {
         send(m, player)
     }
 }
@@ -37,10 +34,8 @@ fun CommandSender.send(messages: List<String>, player: Player? = null)
  * @param message the message to send to all the players
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun <T : CommandSender> List<T>.send(message: String, player: Player? = null)
-{
-    for (cs in this)
-    {
+fun <T : CommandSender> List<T>.send(message: String, player: Player? = null) {
+    for (cs in this) {
         cs.send(message, player)
     }
 }
@@ -51,10 +46,8 @@ fun <T : CommandSender> List<T>.send(message: String, player: Player? = null)
  * @param messages the list of messages to send
  * @param player a player to use for PlaceholderAPI's placeholders
  */
-fun <T : CommandSender> MutableList<T>.send(messages: List<String>, player: Player? = null)
-{
-    for (m in messages)
-    {
+fun <T : CommandSender> MutableList<T>.send(messages: List<String>, player: Player? = null) {
+    for (m in messages) {
         send(m, player)
     }
 }
@@ -66,8 +59,7 @@ fun <T : CommandSender> MutableList<T>.send(messages: List<String>, player: Play
  * @param radius the radius to be in
  * @return true if the player is in the radius, false if not
  */
-fun Entity.inRadiusOfLocation(location: Location, radius: Int): Boolean
-{
+fun Entity.inRadiusOfLocation(location: Location, radius: Int): Boolean {
     return this.location.y > location.y - radius &&
             this.location.y < location.y + radius &&
             this.location.x > location.x - radius &&

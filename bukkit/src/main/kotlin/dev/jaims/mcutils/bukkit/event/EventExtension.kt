@@ -11,8 +11,7 @@ import org.bukkit.scheduler.BukkitTask
 /**
  * A listener extension that lets me easily call the onEvent method
  */
-interface ListenerExt<T : Event> : Listener
-{
+interface ListenerExt<T : Event> : Listener {
     fun onEvent(event: T)
 }
 
@@ -35,15 +34,12 @@ inline fun <reified T : Event> KotlinPlugin.waitForEvent(
     crossinline predicate: (T) -> Boolean = { true },
     crossinline timeoutAction: () -> Unit = {},
     crossinline action: (T) -> Unit,
-)
-{
+) {
     var task: BukkitTask? = null
 
     // a listener for the event
-    val listener = object : ListenerExt<T>
-    {
-        override fun onEvent(event: T)
-        {
+    val listener = object : ListenerExt<T> {
+        override fun onEvent(event: T) {
             if (!predicate(event)) return
             action(event)
             task?.cancel()
@@ -60,8 +56,7 @@ inline fun <reified T : Event> KotlinPlugin.waitForEvent(
     )
 
     // if they want a timeout, start a timeout
-    if (timeoutTicks > 0)
-    {
+    if (timeoutTicks > 0) {
         task = sync(this, delayTicks = timeoutTicks) { HandlerList.unregisterAll(listener); timeoutAction() }
     }
 }

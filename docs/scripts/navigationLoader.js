@@ -35,9 +35,9 @@ revealNavigationForCurrentPage = () => {
         parts.forEach(part => {
             if (part.attributes['pageId'].value.indexOf(pageId) !== -1 && found === 0) {
                 found = 1;
-                if (part.classList.contains("hidden")) {
-                    part.classList.remove("hidden");
-                    part.setAttribute('data-active', "");
+                if (part.classList.contains("hidden")){
+                 part.classList.remove("hidden");
+                 part.setAttribute('data-active',"");
                 }
                 revealParents(part)
             }

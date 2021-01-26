@@ -1010,7 +1010,7 @@ td.content {
     line-height: 16px;
     letter-spacing: 0.2px;
     color: var(--breadcrumb-font-color);
-    margin-top: auto;
+    margin-top:auto;
 }
 
 .footer span.go-to-top-icon {

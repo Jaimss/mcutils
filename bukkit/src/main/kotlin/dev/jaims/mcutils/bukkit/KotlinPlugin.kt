@@ -7,14 +7,12 @@ import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import kotlin.system.measureTimeMillis
 
-abstract class KotlinPlugin : JavaPlugin()
-{
+abstract class KotlinPlugin : JavaPlugin() {
 
     /**
      * We override onEnable to call all of our register methods and then our enable code.
      */
-    override fun onEnable()
-    {
+    override fun onEnable() {
         val millis = measureTimeMillis {
             PluginDependencyManager.of(this).loadAllDependencies().join()
             "&aEnabling ${description.name} (v${description.version})...".log()
@@ -35,8 +33,7 @@ abstract class KotlinPlugin : JavaPlugin()
      */
     abstract fun enable()
 
-    override fun onDisable()
-    {
+    override fun onDisable() {
         val millis = measureTimeMillis {
             "&cDisabling ${description.name} (v${description.version})...".log()
 

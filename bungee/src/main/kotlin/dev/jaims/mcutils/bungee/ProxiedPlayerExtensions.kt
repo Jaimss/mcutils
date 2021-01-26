@@ -8,8 +8,7 @@ import net.md_5.bungee.api.chat.TextComponent
  *
  * @param message the message to send
  */
-fun CommandSender.send(message: String)
-{
+fun CommandSender.send(message: String) {
     sendMessage(*TextComponent.fromLegacyText(message.colorize()))
 }
 
@@ -18,10 +17,8 @@ fun CommandSender.send(message: String)
  *
  * @param messages the list of messages to send
  */
-fun CommandSender.send(messages: MutableList<String>)
-{
-    for (m in messages)
-    {
+fun CommandSender.send(messages: MutableList<String>) {
+    for (m in messages) {
         send(m)
     }
 }
@@ -31,10 +28,8 @@ fun CommandSender.send(messages: MutableList<String>)
  *
  * @param message the message to send
  */
-fun <T : CommandSender> MutableList<T>.send(message: String)
-{
-    for (cs in this)
-    {
+fun <T : CommandSender> MutableList<T>.send(message: String) {
+    for (cs in this) {
         cs.send(message)
     }
 }
@@ -44,10 +39,8 @@ fun <T : CommandSender> MutableList<T>.send(message: String)
  *
  * @param messages the list of messages to send
  */
-fun <T : CommandSender> MutableList<T>.send(messages: MutableList<String>)
-{
-    for (m in messages)
-    {
+fun <T : CommandSender> MutableList<T>.send(messages: MutableList<String>) {
+    for (m in messages) {
         send(m)
     }
 }

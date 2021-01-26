@@ -1,325 +1,67 @@
-var pages = [{'name': 'log', 'index': '0', 'disabled': true, 'searchKey': 'log'},
-    {
-        'name': 'fun Plugin.log(message: Any?, severity: Severity)',
-        'level': 1,
-        'index': '0.0',
-        'description': 'dev.jaims.mcutils.bungee.log',
-        'location': 'project/dev.jaims.mcutils.bungee/log.html',
-        'searchKey': 'log'
-    },
-    {
-        'name': 'fun Plugin.log(message: Any?, severity: Severity)',
-        'level': 1,
-        'index': '0.1',
-        'description': 'dev.jaims.mcutils.bukkit.log',
-        'location': 'project/dev.jaims.mcutils.bukkit/log.html',
-        'searchKey': 'log'
-    },
-    {
-        'name': 'fun Entity.inRadiusOfLocation(location: Location, radius: Int): Boolean',
-        'index': '1',
-        'description': 'dev.jaims.mcutils.bukkit.inRadiusOfLocation',
-        'location': 'project/dev.jaims.mcutils.bukkit/in-radius-of-location.html',
-        'searchKey': 'inRadiusOfLocation'
-    },
-    {
-        'name': 'fun Damageable.kill(): Damageable',
-        'index': '2',
-        'description': 'dev.jaims.mcutils.bukkit.kill',
-        'location': 'project/dev.jaims.mcutils.bukkit/kill.html',
-        'searchKey': 'kill'
-    },
-    {
-        'name': 'fun Damageable.heal(newHealth: Double): Damageable',
-        'index': '3',
-        'description': 'dev.jaims.mcutils.bukkit.heal',
-        'location': 'project/dev.jaims.mcutils.bukkit/heal.html',
-        'searchKey': 'heal'
-    },
-    {
-        'name': 'fun Player.feed(newFood: Int): Player',
-        'index': '4',
-        'description': 'dev.jaims.mcutils.bukkit.feed',
-        'location': 'project/dev.jaims.mcutils.bukkit/feed.html',
-        'searchKey': 'feed'
-    },
-    {
-        'name': 'fun async(plugin: Plugin, delayTicks: Long, repeatingTicks: Long, block: () -> Unit): BukkitTask',
-        'index': '5',
-        'description': 'dev.jaims.mcutils.bukkit.async',
-        'location': 'project/dev.jaims.mcutils.bukkit/async.html',
-        'searchKey': 'async'
-    },
-    {
-        'name': 'fun sync(plugin: Plugin, delayTicks: Long, repeatingTicks: Long, block: () -> Unit): BukkitTask',
-        'index': '6',
-        'description': 'dev.jaims.mcutils.bukkit.sync',
-        'location': 'project/dev.jaims.mcutils.bukkit/sync.html',
-        'searchKey': 'sync'
-    },
-    {
-        'name': 'fun Command.registerPluginYml(plugin: Plugin): Command',
-        'index': '7',
-        'description': 'dev.jaims.mcutils.bukkit.command.registerPluginYml',
-        'location': 'project/dev.jaims.mcutils.bukkit.command/register-plugin-yml.html',
-        'searchKey': 'registerPluginYml'
-    },
-    {
-        'name': 'inline fun <T : CommandSender> Plugin.handleCommand(commandName: String, description: String, usage: String, aliases: List<String>, permission: String?, crossinline noPermissionmessage: (CommandSender) -> Unit, crossinline senderInvalidType: (CommandSender) -> Unit, crossinline body: (T, Array<Out String>) -> Unit)',
-        'index': '8',
-        'description': 'dev.jaims.mcutils.bukkit.command.handleCommand',
-        'location': 'project/dev.jaims.mcutils.bukkit.command/handle-command.html',
-        'searchKey': 'handleCommand'
-    },
-    {
-        'name': 'fun UUID.getName(): String?',
-        'index': '9',
-        'description': 'dev.jaims.mcutils.common.getName',
-        'location': 'project/dev.jaims.mcutils.common/get-name.html',
-        'searchKey': 'getName'
-    },
-    {
-        'name': 'class ItemBuilder(material: Material,amount: Int,damage: Int,name: String?,lore: MutableList<String>,enchantments: MutableMap<Enchantment, Int>,glow: Boolean,unbreakable: Boolean,itemflags: MutableList<ItemFlag>) : Supplier',
-        'index': '10',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/index.html',
-        'searchKey': 'ItemBuilder'
-    },
-    {
-        'name': 'interface ListenerExt<T : Event>  : Listener',
-        'index': '11',
-        'description': 'dev.jaims.mcutils.bukkit.event.ListenerExt',
-        'location': 'project/dev.jaims.mcutils.bukkit.event/-listener-ext/index.html',
-        'searchKey': 'ListenerExt'
-    },
-    {
-        'name': 'inline fun <T : Event> Plugin.waitForEvent(timeoutTicks: Long, ignoreCancelled: Boolean, priority: EventPriority, crossinline action: (T) -> Unit, crossinline predicate: (T) -> Boolean, crossinline timeoutAction: () -> Unit)',
-        'index': '12',
-        'description': 'dev.jaims.mcutils.bukkit.event.waitForEvent',
-        'location': 'project/dev.jaims.mcutils.bukkit.event/wait-for-event.html',
-        'searchKey': 'waitForEvent'
-    },
-    {
-        'name': 'abstract fun onEvent(event: T)',
-        'index': '13',
-        'description': 'dev.jaims.mcutils.bukkit.event.ListenerExt.onEvent',
-        'location': 'project/dev.jaims.mcutils.bukkit.event/-listener-ext/on-event.html',
-        'searchKey': 'onEvent'
-    },
-    {
-        'name': 'fun Int.toTimeFormatted(): Map<Times, Int>',
-        'index': '14',
-        'description': 'dev.jaims.mcutils.common.toTimeFormatted',
-        'location': 'project/dev.jaims.mcutils.common/to-time-formatted.html',
-        'searchKey': 'toTimeFormatted'
-    },
-    {
-        'name': 'fun String.getUUID(): UUID?',
-        'index': '15',
-        'description': 'dev.jaims.mcutils.common.getUUID',
-        'location': 'project/dev.jaims.mcutils.common/get-u-u-i-d.html',
-        'searchKey': 'getUUID'
-    },
-    {
-        'name': 'fun Int.toRomanNumeral(): String',
-        'index': '16',
-        'description': 'dev.jaims.mcutils.common.toRomanNumeral',
-        'location': 'project/dev.jaims.mcutils.common/to-roman-numeral.html',
-        'searchKey': 'toRomanNumeral'
-    },
-    {
-        'name': 'fun setDamage(newdamage: Int): ItemBuilder',
-        'index': '17',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.setDamage',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-damage.html',
-        'searchKey': 'setDamage'
-    },
-    {
-        'name': 'inline fun <T : Event> Plugin.listenForEvent(ignoreCancelled: Boolean, priority: EventPriority, crossinline predicate: (T) -> Boolean, crossinline action: (T) -> Unit)',
-        'index': '18',
-        'description': 'dev.jaims.mcutils.bukkit.event.listenForEvent',
-        'location': 'project/dev.jaims.mcutils.bukkit.event/listen-for-event.html',
-        'searchKey': 'listenForEvent'
-    },
-    {
-        'name': 'inline fun ItemStack.meta(meta: ItemMeta.() -> Unit)',
-        'index': '19',
-        'description': 'dev.jaims.mcutils.bukkit.item.meta',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/meta.html',
-        'searchKey': 'meta'
-    },
-    {
-        'name': 'fun <init>(material: Material, amount: Int, damage: Int, name: String?, lore: MutableList<String>, enchantments: MutableMap<Enchantment, Int>, glow: Boolean, unbreakable: Boolean, itemflags: MutableList<ItemFlag>)',
-        'index': '20',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.<init>',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/-init-.html',
-        'searchKey': '<init>'
-    },
-    {
-        'name': 'fun setGlow(newglow: Boolean): ItemBuilder',
-        'index': '21',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.setGlow',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-glow.html',
-        'searchKey': 'setGlow'
-    },
-    {
-        'name': 'fun addEnchantments(newenchantments: Map<Enchantment, Int>): ItemBuilder',
-        'index': '22',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.addEnchantments',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-enchantments.html',
-        'searchKey': 'addEnchantments'
-    },
-    {
-        'name': 'enum InputType : Enum',
-        'index': '23',
-        'description': 'dev.jaims.mcutils.common.InputType',
-        'location': 'project/dev.jaims.mcutils.common/-input-type/index.html',
-        'searchKey': 'InputType'
-    },
-    {
-        'name': 'open override fun get(): ItemStack',
-        'index': '24',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.get',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/get.html',
-        'searchKey': 'get'
-    },
-    {
-        'name': 'fun String.getInputType(): InputType',
-        'index': '25',
-        'description': 'dev.jaims.mcutils.common.getInputType',
-        'location': 'project/dev.jaims.mcutils.common/get-input-type.html',
-        'searchKey': 'getInputType'
-    },
-    {
-        'name': 'fun addItemFlag(newitemflag: ItemFlag): ItemBuilder',
-        'index': '26',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.addItemFlag',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-item-flag.html',
-        'searchKey': 'addItemFlag'
-    },
-    {
-        'name': 'fun Date.getSecondsDifference(date: Date): Int',
-        'index': '27',
-        'description': 'dev.jaims.mcutils.common.getSecondsDifference',
-        'location': 'project/dev.jaims.mcutils.common/get-seconds-difference.html',
-        'searchKey': 'getSecondsDifference'
-    },
-    {
-        'name': 'fun setName(newname: String): ItemBuilder',
-        'index': '28',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.setName',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-name.html',
-        'searchKey': 'setName'
-    },
-    {
-        'name': 'fun setAmount(newamt: Int): ItemBuilder',
-        'index': '29',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.setAmount',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-amount.html',
-        'searchKey': 'setAmount'
-    },
-    {
-        'name': 'NAME()',
-        'index': '30',
-        'description': 'dev.jaims.mcutils.common.InputType.NAME',
-        'location': 'project/dev.jaims.mcutils.common/-input-type/-n-a-m-e/index.html',
-        'searchKey': 'NAME'
-    },
-    {
-        'name': 'UUID()',
-        'index': '31',
-        'description': 'dev.jaims.mcutils.common.InputType.UUID',
-        'location': 'project/dev.jaims.mcutils.common/-input-type/-u-u-i-d/index.html',
-        'searchKey': 'UUID'
-    },
-    {
-        'name': 'enum Times : Enum',
-        'index': '32',
-        'description': 'dev.jaims.mcutils.common.Times',
-        'location': 'project/dev.jaims.mcutils.common/-times/index.html',
-        'searchKey': 'Times'
-    },
-    {
-        'name': 'SHORTUUID()',
-        'index': '33',
-        'description': 'dev.jaims.mcutils.common.InputType.SHORTUUID',
-        'location': 'project/dev.jaims.mcutils.common/-input-type/-s-h-o-r-t-u-u-i-d/index.html',
-        'searchKey': 'SHORTUUID'
-    },
-    {
-        'name': 'fun addItemFlags(newitemflags: List<ItemFlag>): ItemBuilder',
-        'index': '34',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.addItemFlags',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-item-flags.html',
-        'searchKey': 'addItemFlags'
-    },
-    {
-        'name': 'fun setUnbreakable(newunbreakable: Boolean): ItemBuilder',
-        'index': '35',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.setUnbreakable',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-unbreakable.html',
-        'searchKey': 'setUnbreakable'
-    },
-    {
-        'name': 'fun addEnchantment(newenchantment: Enchantment, level: Int): ItemBuilder',
-        'index': '36',
-        'description': 'dev.jaims.mcutils.bukkit.item.ItemBuilder.addEnchantment',
-        'location': 'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-enchantment.html',
-        'searchKey': 'addEnchantment'
-    },
-    {
-        'name': 'DAYS("days")',
-        'index': '37',
-        'description': 'dev.jaims.mcutils.common.Times.DAYS',
-        'location': 'project/dev.jaims.mcutils.common/-times/-d-a-y-s/index.html',
-        'searchKey': 'DAYS'
-    },
-    {
-        'name': 'YEARS("years")',
-        'index': '38',
-        'description': 'dev.jaims.mcutils.common.Times.YEARS',
-        'location': 'project/dev.jaims.mcutils.common/-times/-y-e-a-r-s/index.html',
-        'searchKey': 'YEARS'
-    },
-    {
-        'name': 'open override fun toString(): String',
-        'index': '39',
-        'description': 'dev.jaims.mcutils.common.Times.toString',
-        'location': 'project/dev.jaims.mcutils.common/-times/to-string.html',
-        'searchKey': 'toString'
-    },
-    {
-        'name': 'HOURS("hours")',
-        'index': '40',
-        'description': 'dev.jaims.mcutils.common.Times.HOURS',
-        'location': 'project/dev.jaims.mcutils.common/-times/-h-o-u-r-s/index.html',
-        'searchKey': 'HOURS'
-    },
-    {
-        'name': 'MINUTES("minutes")',
-        'index': '41',
-        'description': 'dev.jaims.mcutils.common.Times.MINUTES',
-        'location': 'project/dev.jaims.mcutils.common/-times/-m-i-n-u-t-e-s/index.html',
-        'searchKey': 'MINUTES'
-    },
-    {
-        'name': 'WEEKS("weeks")',
-        'index': '42',
-        'description': 'dev.jaims.mcutils.common.Times.WEEKS',
-        'location': 'project/dev.jaims.mcutils.common/-times/-w-e-e-k-s/index.html',
-        'searchKey': 'WEEKS'
-    },
-    {
-        'name': 'MONTHS("months")',
-        'index': '43',
-        'description': 'dev.jaims.mcutils.common.Times.MONTHS',
-        'location': 'project/dev.jaims.mcutils.common/-times/-m-o-n-t-h-s/index.html',
-        'searchKey': 'MONTHS'
-    },
-    {
-        'name': 'SECONDS("seconds")',
-        'index': '44',
-        'description': 'dev.jaims.mcutils.common.Times.SECONDS',
-        'location': 'project/dev.jaims.mcutils.common/-times/-s-e-c-o-n-d-s/index.html',
-        'searchKey': 'SECONDS'
-    }]
+var pages = [{'name': 'inline fun <T : Event> KotlinPlugin.listenForEvent(ignoreCancelled: Boolean, priority: EventPriority, crossinline predicate: (T) -> Boolean, crossinline action: (T) -> Unit)', 'index': '0', 'description':'dev.jaims.mcutils.bukkit.event.listenForEvent', 'location':'project/dev.jaims.mcutils.bukkit.event/listen-for-event.html', 'searchKey':'listenForEvent'},
+{'name': 'inline fun <T : Event> KotlinPlugin.waitForEvent(timeoutTicks: Long, ignoreCancelled: Boolean, priority: EventPriority, crossinline predicate: (T) -> Boolean, crossinline timeoutAction: () -> Unit, crossinline action: (T) -> Unit)', 'index': '1', 'description':'dev.jaims.mcutils.bukkit.event.waitForEvent', 'location':'project/dev.jaims.mcutils.bukkit.event/wait-for-event.html', 'searchKey':'waitForEvent'},
+{'name': 'interface ListenerExt<T : Event>  : Listener', 'index': '2', 'description':'dev.jaims.mcutils.bukkit.event.ListenerExt', 'location':'project/dev.jaims.mcutils.bukkit.event/-listener-ext/index.html', 'searchKey':'ListenerExt'},
+{'name': 'data class CommandProperties(silent: Boolean,isConfirmation: Boolean,bypassCooldown: Boolean)', 'index': '3', 'description':'dev.jaims.mcutils.bukkit.command.CommandProperties', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-properties/index.html', 'searchKey':'CommandProperties'},
+{'name': 'log', 'index': '4', 'disabled': true, 'searchKey':'log' },
+{'name': 'fun Plugin.log(message: Any?, severity: Severity)', 'level': 1, 'index': '4.0', 'description':'dev.jaims.mcutils.bungee.log', 'location':'project/dev.jaims.mcutils.bungee/log.html', 'searchKey':'log'},
+{'name': 'fun String.log(severity: Severity)', 'level': 1, 'index': '4.1', 'description':'dev.jaims.mcutils.bukkit.util.log', 'location':'project/dev.jaims.mcutils.bukkit.util/log.html', 'searchKey':'log'},
+{'name': 'interface CommandHandler : CommandExecutor, TabExecutor', 'index': '5', 'description':'dev.jaims.mcutils.bukkit.command.CommandHandler', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-handler/index.html', 'searchKey':'CommandHandler'},
+{'name': 'inline fun ItemStack.meta(meta: ItemMeta.() -> Unit)', 'index': '6', 'description':'dev.jaims.mcutils.bukkit.item.meta', 'location':'project/dev.jaims.mcutils.bukkit.item/meta.html', 'searchKey':'meta'},
+{'name': 'abstract fun onEvent(event: T)', 'index': '7', 'description':'dev.jaims.mcutils.bukkit.event.ListenerExt.onEvent', 'location':'project/dev.jaims.mcutils.bukkit.event/-listener-ext/on-event.html', 'searchKey':'onEvent'},
+{'name': 'fun copy(silent: Boolean, isConfirmation: Boolean, bypassCooldown: Boolean): CommandProperties', 'index': '8', 'description':'dev.jaims.mcutils.bukkit.command.CommandProperties.copy', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-properties/copy.html', 'searchKey':'copy'},
+{'name': 'open override fun onTabComplete(sender: CommandSender, command: Command, alias: String, args: Array<Out String>): MutableList<String>', 'index': '9', 'description':'dev.jaims.mcutils.bukkit.command.CommandHandler.onTabComplete', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-handler/on-tab-complete.html', 'searchKey':'onTabComplete'},
+{'name': 'operator fun component1(): Boolean', 'index': '10', 'description':'dev.jaims.mcutils.bukkit.command.CommandProperties.component1', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-properties/component1.html', 'searchKey':'component1'},
+{'name': '<init>', 'index': '11', 'disabled': true, 'searchKey':'<init>' },
+{'name': 'fun <init>(silent: Boolean, isConfirmation: Boolean, bypassCooldown: Boolean)', 'level': 1, 'index': '11.0', 'description':'dev.jaims.mcutils.bukkit.command.CommandProperties.<init>', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-properties/-init-.html', 'searchKey':'<init>'},
+{'name': 'fun <init>()', 'level': 1, 'index': '11.1', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.<init>', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/-init-.html', 'searchKey':'<init>'},
+{'name': 'fun <init>(material: Material, amount: Int, damage: Int, name: String?, lore: MutableList<String>, enchantments: MutableMap<Enchantment, Int>, glow: Boolean, unbreakable: Boolean, itemflags: MutableList<ItemFlag>)', 'level': 1, 'index': '11.2', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.<init>', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/-init-.html', 'searchKey':'<init>'},
+{'name': 'operator fun component2(): Boolean', 'index': '12', 'description':'dev.jaims.mcutils.bukkit.command.CommandProperties.component2', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-properties/component2.html', 'searchKey':'component2'},
+{'name': 'operator fun component3(): Boolean', 'index': '13', 'description':'dev.jaims.mcutils.bukkit.command.CommandProperties.component3', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-properties/component3.html', 'searchKey':'component3'},
+{'name': 'fun String.toPastebin(): String', 'index': '14', 'description':'dev.jaims.mcutils.common.toPastebin', 'location':'project/dev.jaims.mcutils.common/to-pastebin.html', 'searchKey':'toPastebin'},
+{'name': 'abstract class KotlinPlugin : JavaPlugin', 'index': '15', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/index.html', 'searchKey':'KotlinPlugin'},
+{'name': 'fun Int.toTimeFormatted(): Map<Times, Int>', 'index': '16', 'description':'dev.jaims.mcutils.common.toTimeFormatted', 'location':'project/dev.jaims.mcutils.common/to-time-formatted.html', 'searchKey':'toTimeFormatted'},
+{'name': 'fun String.getUUID(): UUID?', 'index': '17', 'description':'dev.jaims.mcutils.common.getUUID', 'location':'project/dev.jaims.mcutils.common/get-u-u-i-d.html', 'searchKey':'getUUID'},
+{'name': 'abstract fun registerCommands()', 'index': '18', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.registerCommands', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/register-commands.html', 'searchKey':'registerCommands'},
+{'name': 'fun String.getInputType(): InputType', 'index': '19', 'description':'dev.jaims.mcutils.common.getInputType', 'location':'project/dev.jaims.mcutils.common/get-input-type.html', 'searchKey':'getInputType'},
+{'name': 'fun Int.toRomanNumeral(): String', 'index': '20', 'description':'dev.jaims.mcutils.common.toRomanNumeral', 'location':'project/dev.jaims.mcutils.common/to-roman-numeral.html', 'searchKey':'toRomanNumeral'},
+{'name': 'abstract fun execute(sender: CommandSender, args: List<String>, props: CommandProperties)', 'index': '21', 'description':'dev.jaims.mcutils.bukkit.command.CommandHandler.execute', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-handler/execute.html', 'searchKey':'execute'},
+{'name': 'fun UUID.getName(): String?', 'index': '22', 'description':'dev.jaims.mcutils.common.getName', 'location':'project/dev.jaims.mcutils.common/get-name.html', 'searchKey':'getName'},
+{'name': 'fun Date.getSecondsDifference(date: Date): Int', 'index': '23', 'description':'dev.jaims.mcutils.common.getSecondsDifference', 'location':'project/dev.jaims.mcutils.common/get-seconds-difference.html', 'searchKey':'getSecondsDifference'},
+{'name': 'fun Entity.inRadiusOfLocation(location: Location, radius: Int): Boolean', 'index': '24', 'description':'dev.jaims.mcutils.bukkit.util.inRadiusOfLocation', 'location':'project/dev.jaims.mcutils.bukkit.util/in-radius-of-location.html', 'searchKey':'inRadiusOfLocation'},
+{'name': 'class ItemBuilder(material: Material,amount: Int,damage: Int,name: String?,lore: MutableList<String>,enchantments: MutableMap<Enchantment, Int>,glow: Boolean,unbreakable: Boolean,itemflags: MutableList<ItemFlag>) : Supplier', 'index': '25', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/index.html', 'searchKey':'ItemBuilder'},
+{'name': 'fun Damageable.kill(): Damageable', 'index': '26', 'description':'dev.jaims.mcutils.bukkit.util.kill', 'location':'project/dev.jaims.mcutils.bukkit.util/kill.html', 'searchKey':'kill'},
+{'name': 'open override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<Out String>): Boolean', 'index': '27', 'description':'dev.jaims.mcutils.bukkit.command.CommandHandler.onCommand', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-handler/on-command.html', 'searchKey':'onCommand'},
+{'name': 'fun Player.feed(newFood: Int): Player', 'index': '28', 'description':'dev.jaims.mcutils.bukkit.util.feed', 'location':'project/dev.jaims.mcutils.bukkit.util/feed.html', 'searchKey':'feed'},
+{'name': 'fun async(plugin: KotlinPlugin, delayTicks: Long, repeatingTicks: Long, block: () -> Unit): BukkitTask', 'index': '29', 'description':'dev.jaims.mcutils.bukkit.util.async', 'location':'project/dev.jaims.mcutils.bukkit.util/async.html', 'searchKey':'async'},
+{'name': 'fun sync(plugin: KotlinPlugin, delayTicks: Long, repeatingTicks: Long, block: () -> Unit): BukkitTask', 'index': '30', 'description':'dev.jaims.mcutils.bukkit.util.sync', 'location':'project/dev.jaims.mcutils.bukkit.util/sync.html', 'searchKey':'sync'},
+{'name': 'open fun register(plugin: KotlinPlugin)', 'index': '31', 'description':'dev.jaims.mcutils.bukkit.command.CommandHandler.register', 'location':'project/dev.jaims.mcutils.bukkit.command/-command-handler/register.html', 'searchKey':'register'},
+{'name': 'fun Damageable.heal(newHealth: Double): Damageable', 'index': '32', 'description':'dev.jaims.mcutils.bukkit.util.heal', 'location':'project/dev.jaims.mcutils.bukkit.util/heal.html', 'searchKey':'heal'},
+{'name': 'abstract fun enable()', 'index': '33', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.enable', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/enable.html', 'searchKey':'enable'},
+{'name': 'open override fun onDisable()', 'index': '34', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.onDisable', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/on-disable.html', 'searchKey':'onDisable'},
+{'name': 'abstract fun disable()', 'index': '35', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.disable', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/disable.html', 'searchKey':'disable'},
+{'name': 'open override fun onEnable()', 'index': '36', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.onEnable', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/on-enable.html', 'searchKey':'onEnable'},
+{'name': 'abstract fun registerManagers()', 'index': '37', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.registerManagers', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/register-managers.html', 'searchKey':'registerManagers'},
+{'name': 'abstract fun registerListeners()', 'index': '38', 'description':'dev.jaims.mcutils.bukkit.KotlinPlugin.registerListeners', 'location':'project/dev.jaims.mcutils.bukkit/-kotlin-plugin/register-listeners.html', 'searchKey':'registerListeners'},
+{'name': 'fun setDamage(newdamage: Int): ItemBuilder', 'index': '39', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.setDamage', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-damage.html', 'searchKey':'setDamage'},
+{'name': 'fun setAmount(newamt: Int): ItemBuilder', 'index': '40', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.setAmount', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-amount.html', 'searchKey':'setAmount'},
+{'name': 'open override fun get(): ItemStack', 'index': '41', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.get', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/get.html', 'searchKey':'get'},
+{'name': 'fun addItemFlag(newitemflag: ItemFlag): ItemBuilder', 'index': '42', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.addItemFlag', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-item-flag.html', 'searchKey':'addItemFlag'},
+{'name': 'fun setName(newname: String): ItemBuilder', 'index': '43', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.setName', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-name.html', 'searchKey':'setName'},
+{'name': 'fun addEnchantments(newenchantments: Map<Enchantment, Int>): ItemBuilder', 'index': '44', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.addEnchantments', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-enchantments.html', 'searchKey':'addEnchantments'},
+{'name': 'fun addEnchantment(newenchantment: Enchantment, level: Int): ItemBuilder', 'index': '45', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.addEnchantment', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-enchantment.html', 'searchKey':'addEnchantment'},
+{'name': 'fun addItemFlags(newitemflags: List<ItemFlag>): ItemBuilder', 'index': '46', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.addItemFlags', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/add-item-flags.html', 'searchKey':'addItemFlags'},
+{'name': 'fun setGlow(newglow: Boolean): ItemBuilder', 'index': '47', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.setGlow', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-glow.html', 'searchKey':'setGlow'},
+{'name': 'enum InputType : Enum', 'index': '48', 'description':'dev.jaims.mcutils.common.InputType', 'location':'project/dev.jaims.mcutils.common/-input-type/index.html', 'searchKey':'InputType'},
+{'name': 'NAME()', 'index': '49', 'description':'dev.jaims.mcutils.common.InputType.NAME', 'location':'project/dev.jaims.mcutils.common/-input-type/-n-a-m-e/index.html', 'searchKey':'NAME'},
+{'name': 'SHORTUUID()', 'index': '50', 'description':'dev.jaims.mcutils.common.InputType.SHORTUUID', 'location':'project/dev.jaims.mcutils.common/-input-type/-s-h-o-r-t-u-u-i-d/index.html', 'searchKey':'SHORTUUID'},
+{'name': 'fun setUnbreakable(newunbreakable: Boolean): ItemBuilder', 'index': '51', 'description':'dev.jaims.mcutils.bukkit.item.ItemBuilder.setUnbreakable', 'location':'project/dev.jaims.mcutils.bukkit.item/-item-builder/set-unbreakable.html', 'searchKey':'setUnbreakable'},
+{'name': 'enum Times : Enum', 'index': '52', 'description':'dev.jaims.mcutils.common.Times', 'location':'project/dev.jaims.mcutils.common/-times/index.html', 'searchKey':'Times'},
+{'name': 'UUID()', 'index': '53', 'description':'dev.jaims.mcutils.common.InputType.UUID', 'location':'project/dev.jaims.mcutils.common/-input-type/-u-u-i-d/index.html', 'searchKey':'UUID'},
+{'name': 'MONTHS("months")', 'index': '54', 'description':'dev.jaims.mcutils.common.Times.MONTHS', 'location':'project/dev.jaims.mcutils.common/-times/-m-o-n-t-h-s/index.html', 'searchKey':'MONTHS'},
+{'name': 'YEARS("years")', 'index': '55', 'description':'dev.jaims.mcutils.common.Times.YEARS', 'location':'project/dev.jaims.mcutils.common/-times/-y-e-a-r-s/index.html', 'searchKey':'YEARS'},
+{'name': 'WEEKS("weeks")', 'index': '56', 'description':'dev.jaims.mcutils.common.Times.WEEKS', 'location':'project/dev.jaims.mcutils.common/-times/-w-e-e-k-s/index.html', 'searchKey':'WEEKS'},
+{'name': 'MINUTES("minutes")', 'index': '57', 'description':'dev.jaims.mcutils.common.Times.MINUTES', 'location':'project/dev.jaims.mcutils.common/-times/-m-i-n-u-t-e-s/index.html', 'searchKey':'MINUTES'},
+{'name': 'open override fun toString(): String', 'index': '58', 'description':'dev.jaims.mcutils.common.Times.toString', 'location':'project/dev.jaims.mcutils.common/-times/to-string.html', 'searchKey':'toString'},
+{'name': 'HOURS("hours")', 'index': '59', 'description':'dev.jaims.mcutils.common.Times.HOURS', 'location':'project/dev.jaims.mcutils.common/-times/-h-o-u-r-s/index.html', 'searchKey':'HOURS'},
+{'name': 'SECONDS("seconds")', 'index': '60', 'description':'dev.jaims.mcutils.common.Times.SECONDS', 'location':'project/dev.jaims.mcutils.common/-times/-s-e-c-o-n-d-s/index.html', 'searchKey':'SECONDS'},
+{'name': 'DAYS("days")', 'index': '61', 'description':'dev.jaims.mcutils.common.Times.DAYS', 'location':'project/dev.jaims.mcutils.common/-times/-d-a-y-s/index.html', 'searchKey':'DAYS'}]

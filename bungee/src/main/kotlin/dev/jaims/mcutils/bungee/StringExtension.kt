@@ -8,8 +8,7 @@ import java.util.regex.Pattern
  *
  * @return a colorized string
  */
-fun String.colorize(): String
-{
+fun String.colorize(): String {
     val pattern = Pattern.compile(
         "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
         Pattern.CASE_INSENSITIVE
@@ -17,15 +16,12 @@ fun String.colorize(): String
 
     var mutString = this
     val matcher = pattern.matcher(mutString)
-    while (matcher.find())
-    {
-        try
-        {
+    while (matcher.find()) {
+        try {
             val hex = matcher.group().replace("<", "").replace(">", "")
             val color = ChatColor.of(hex)
             if (color != null) mutString = mutString.replace(matcher.group(), color.toString())
-        } catch (ignored: IllegalArgumentException)
-        {
+        } catch (ignored: IllegalArgumentException) {
         }
     }
 

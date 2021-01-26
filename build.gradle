@@ -1,32 +1,32 @@
 plugins {
-    id 'maven-publish'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
-    id 'com.github.johnrengelman.shadow' version '6.0.0'
-    id 'org.jetbrains.dokka' version '1.4.0-rc'
+    id "maven-publish"
+    id "org.jetbrains.kotlin.jvm" version "1.4.0"
+    id "com.github.johnrengelman.shadow" version "6.0.0"
+    id "org.jetbrains.dokka" version "1.4.0-rc"
 }
 
 allprojects {
-    apply plugin: 'org.jetbrains.dokka'
-    apply plugin: 'maven-publish'
-    apply plugin: 'org.jetbrains.kotlin.jvm'
-    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: "org.jetbrains.dokka"
+    apply plugin: "maven-publish"
+    apply plugin: "org.jetbrains.kotlin.jvm"
+    apply plugin: "com.github.johnrengelman.shadow"
 
     shadowJar {
         archiveClassifier.set("")
-        relocate 'me.mattstudios.mfmsg', 'dev.jaims.mcutils.libs.mfmsg'
+        relocate "me.mattstudios.mfmsg", "dev.jaims.mcutils.libs.mfmsg"
     }
 
     repositories {
         mavenCentral()
-        maven { url 'https://repo.jaims.dev/repository/all/' }
+        maven { url "https://repo.jaims.dev/repository/all/" }
     }
 
     dependencies {
-        compileOnly 'me.bristermitten:pdm:0.0.30'
+        compileOnly "me.bristermitten:pdm:0.0.30"
         compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-        compileOnly 'com.github.jkcclemens:khttp:39f76b4186'
+        compileOnly "com.github.jkcclemens:khttp:39f76b4186"
 
-        testImplementation group: 'org.jetbrains.kotlin', name: 'kotlin-test-junit', version: '1.4.0'
+        testImplementation group: "org.jetbrains.kotlin", name: "kotlin-test-junit", version: "1.4.0"
     }
 }
 
@@ -34,13 +34,13 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = '2.2.5'
+def ver = "2.2.6"
 
-group 'dev.jaims'
+group "dev.jaims"
 version ver
 
 subprojects {
-    group 'dev.jaims.mcutils'
+    group "dev.jaims.mcutils"
     version ver
 
     publishing {
@@ -54,11 +54,11 @@ subprojects {
             maven {
                 def releasesRepoUrl = "https://repo.jaims.dev/repository/maven-releases/"
                 def snapshotsRepoUrl = "https://repo.jaims.dev/repository/maven-snapshots/"
-                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                url = version.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
 
                 credentials {
-                    username = project.property('sonatype.user')
-                    password = project.property('sonatype.password')
+                    username = project.property("sonatype.user")
+                    password = project.property("sonatype.password")
                 }
             }
         }

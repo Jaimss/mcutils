@@ -5,36 +5,26 @@ import me.clip.placeholderapi.PlaceholderAPI
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
-import java.util.regex.Pattern
 import javax.print.attribute.standard.Severity
+import kotlin.system.measureTimeMillis
+
+/**
+ * A regular expression for hex chat.
+ */
+val pattern = "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>".toRegex()
 
 /**
  * A chat colorization util that supports hex and PlaceholderAPI placeholders for a [player] if one is provided.
- * Loosely based off of https://gist.github.com/iGabyTM/7415263c2209653ede82457c289de697
  */
-fun String.colorize(player: Player? = null): String
-{
-    val pattern = Pattern.compile(
-        "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>",
-        Pattern.CASE_INSENSITIVE
-    )
-
-    var message = this
-    val matcher = pattern.matcher(message)
-    while (matcher.find())
-    {
-        try
-        {
-            val color = net.md_5.bungee.api.ChatColor.of(matcher.group().replace("<", "").replace(">", ""))
-            if (color != null) message = message.replace(matcher.group(), color.toString())
-        } catch (ignored: IllegalArgumentException)
-        {
-            // ignored :)
+fun String.colorize(player: Player? = null): String {
+    measureTimeMillis {
+        val message = replace(pattern) {
+            val hexCode = it.value.replace("<", "").replace(">", "")
+            val color = net.md_5.bungee.api.ChatColor.of(hexCode)
+            return@replace color.toString()
         }
+        return ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(player, message))
     }
-    message = PlaceholderAPI.setPlaceholders(player, message)
-    return ChatColor.translateAlternateColorCodes('&', message)
-
 }
 
 /**
@@ -42,11 +32,9 @@ fun String.colorize(player: Player? = null): String
  */
 fun List<String>.colorize(player: Player? = null): List<String> = map { it.colorize(player) }
 
-fun String.log(severity: Severity = Severity.REPORT)
-{
+fun String.log(severity: Severity = Severity.REPORT) {
     val plugin = JavaPlugin.getPlugin(KotlinPlugin::class.java)
-    when (severity)
-    {
+    when (severity) {
         Severity.ERROR -> plugin.logger.severe(this.colorize())
         Severity.WARNING -> plugin.logger.warning(this.colorize())
         else -> plugin.logger.info(this.colorize())

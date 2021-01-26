@@ -2,18 +2,15 @@ import dev.jaims.mcutils.common.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class CommonTest
-{
+class CommonTest {
 
     @Test
-    fun romanNumeralTest()
-    {
+    fun romanNumeralTest() {
         assertEquals("X", 10.toRomanNumeral())
     }
 
     @Test
-    fun timeFormattedTest()
-    {
+    fun timeFormattedTest() {
         assertEquals(
             mapOf(
                 Times.YEARS to 0,
@@ -41,8 +38,7 @@ class CommonTest
     }
 
     @Test
-    fun getInputTypeTest()
-    {
+    fun getInputTypeTest() {
         assertEquals(
             InputType.UUID,
             "ca606d09-dced-4241-94a6-eaa7d4525d9f".getInputType()

@@ -25,14 +25,12 @@ class ItemBuilder(
     private var glow: Boolean = false,
     private var unbreakable: Boolean = false,
     private var itemflags: MutableList<ItemFlag> = mutableListOf()
-) : Supplier<ItemStack>
-{
+) : Supplier<ItemStack> {
 
     /**
      * @return an [org.bukkit.inventory.ItemStack] with the proper things applied to it based on your specifications
      */
-    override fun get(): ItemStack
-    {
+    override fun get(): ItemStack {
         val item = ItemStack(material, amount)
         val meta = item.itemMeta ?: return item
 
@@ -40,8 +38,7 @@ class ItemBuilder(
         if (name != null) meta.setDisplayName(name)
         for (e in enchantments) meta.addEnchant(e.key, e.value, true)
         // need to find a better way to do this so it doesn't affect your enchantments
-        if (glow)
-        {
+        if (glow) {
             meta.addEnchant(Enchantment.OXYGEN, 1, true)
             this.itemflags.add(ItemFlag.HIDE_ENCHANTS)
         }

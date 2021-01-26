@@ -6,8 +6,7 @@ import java.util.*
 /**
  * Post a [String] to https://paste.jaims.dev. Useful for sending console logs or error messages.
  */
-fun String.toPastebin(): String
-{
+fun String.toPastebin(): String {
     val url = "https://paste.jaims.dev/documents"
     val r = post(
         url,
@@ -25,8 +24,7 @@ fun String.toPastebin(): String
  *
  * @return the correct roman numeral string
  */
-fun Int.toRomanNumeral(): String
-{
+fun Int.toRomanNumeral(): String {
     val map = mapOf(
         1000 to "M",
         900 to "CM",
@@ -45,10 +43,8 @@ fun Int.toRomanNumeral(): String
     var remainder = this
     var output = ""
 
-    for ((int, str) in map)
-    {
-        while (remainder / int > 0)
-        {
+    for ((int, str) in map) {
+        while (remainder / int > 0) {
             remainder -= int
             output += str
         }
@@ -61,8 +57,7 @@ fun Int.toRomanNumeral(): String
  *
  * @return a map of times and ints where time is the [Times] and [Int] is the amount of that time
  */
-fun Int.toTimeFormatted(): Map<Times, Int>
-{
+fun Int.toTimeFormatted(): Map<Times, Int> {
     var remainder = this
     val years = remainder / 31536000
     remainder -= years * 31536000
@@ -94,16 +89,14 @@ fun Int.toTimeFormatted(): Map<Times, Int>
  * @param date the old date
  * @return the seconds difference between two dates.
  */
-fun Date.getSecondsDifference(date: Date): Int
-{
+fun Date.getSecondsDifference(date: Date): Int {
     return ((date.time - time) / 1000).toInt()
 }
 
 /**
  * @return what type of [InputType] a certain string is
  */
-fun String.getInputType(): InputType
-{
+fun String.getInputType(): InputType {
     if (matches("[A-Za-z0-9]{8}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{4}[-][A-Za-z0-9]{12}".toRegex()))
         return InputType.UUID
     if (matches("[A-Za-z0-9]{32}".toRegex())) return InputType.SHORTUUID
@@ -125,8 +118,7 @@ enum class InputType {
  * of the name
  * A simple enum for the names of different time specs.
  */
-enum class Times(val placeholder: String)
-{
+enum class Times(val placeholder: String) {
 
     YEARS("years"),
     MONTHS("months"),
@@ -136,8 +128,7 @@ enum class Times(val placeholder: String)
     MINUTES("minutes"),
     SECONDS("seconds");
 
-    override fun toString(): String
-    {
+    override fun toString(): String {
         return placeholder
     }
 }
