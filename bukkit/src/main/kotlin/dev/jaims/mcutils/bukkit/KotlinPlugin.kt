@@ -9,6 +9,29 @@ import kotlin.system.measureTimeMillis
 
 abstract class KotlinPlugin : JavaPlugin() {
 
+    companion object {
+        /**
+         * The [Environment] of the server.
+         */
+        @JvmStatic
+        val ENVIRONMENT: Environment = try {
+            Class.forName("com.destroystokyo.paper.PaperConfig");
+            Environment.PAPER
+        } catch (e: ClassNotFoundException) {
+            try {
+                Class.forName("org.spigotmc.SpigotConfig");
+                Environment.SPIGOT
+            } catch (e1: ClassNotFoundException) {
+                Environment.CRAFTBUKKIT
+            }
+        }
+    }
+
+    /**
+     * true if the server is running paper.
+     */
+    val isPaper: Boolean = ENVIRONMENT == Environment.PAPER
+
     /**
      * We override onEnable to call all of our register methods and then our enable code.
      */

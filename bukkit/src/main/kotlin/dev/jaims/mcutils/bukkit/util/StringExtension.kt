@@ -6,7 +6,6 @@ import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 import javax.print.attribute.standard.Severity
-import kotlin.system.measureTimeMillis
 
 /**
  * A regular expression for hex chat.
@@ -17,14 +16,12 @@ val pattern = "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|
  * A chat colorization util that supports hex and PlaceholderAPI placeholders for a [player] if one is provided.
  */
 fun String.colorize(player: Player? = null): String {
-    measureTimeMillis {
-        val message = replace(pattern) {
-            val hexCode = it.value.replace("<", "").replace(">", "")
-            val color = net.md_5.bungee.api.ChatColor.of(hexCode)
-            return@replace color.toString()
-        }
-        return ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(player, message))
+    val message = replace(pattern) {
+        val hexCode = it.value.replace("<", "").replace(">", "")
+        val color = net.md_5.bungee.api.ChatColor.of(hexCode)
+        return@replace color.toString()
     }
+    return ChatColor.translateAlternateColorCodes('&', PlaceholderAPI.setPlaceholders(player, message))
 }
 
 /**
