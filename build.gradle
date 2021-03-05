@@ -22,7 +22,7 @@ allprojects {
     }
 
     dependencies {
-        compileOnly "me.bristermitten:pdm:0.0.30"
+        compileOnly "me.bristermitten:pdm:0.0.33"
         compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
         compileOnly "com.github.jkcclemens:khttp:39f76b4186"
 
@@ -34,7 +34,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = "2.2.7"
+def ver = "2.2.8"
 
 group "dev.jaims"
 version ver
