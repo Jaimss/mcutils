@@ -43,6 +43,7 @@ inline fun <reified T : Event> KotlinPlugin.waitForEvent(
             if (!predicate(event)) return
             action(event)
             task?.cancel()
+            HandlerList.unregisterAll(this)
         }
     }
     // register the event itself
@@ -50,7 +51,7 @@ inline fun <reified T : Event> KotlinPlugin.waitForEvent(
         T::class.java,
         listener,
         priority,
-        { l, e -> (l as ListenerExt<T>).onEvent(e as T); HandlerList.unregisterAll(l) },
+        { l, e -> (l as ListenerExt<T>).onEvent(e as T) },
         this@waitForEvent,
         ignoreCancelled
     )

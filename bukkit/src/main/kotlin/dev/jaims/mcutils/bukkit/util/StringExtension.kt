@@ -10,7 +10,7 @@ import javax.print.attribute.standard.Severity
 /**
  * A regular expression for hex chat.
  */
-val pattern = "<(#[a-f0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>".toRegex()
+val pattern = "<(#[a-fA-F0-9]{6}|aqua|black|blue|dark_(aqua|blue|gray|green|purple|red)|gray|gold|green|light_purple|red|white|yellow)>".toRegex()
 
 /**
  * A chat colorization util that supports hex and PlaceholderAPI placeholders for a [player] if one is provided.

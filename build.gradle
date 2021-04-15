@@ -1,7 +1,7 @@
 plugins {
     id "maven-publish"
-    id "org.jetbrains.kotlin.jvm" version "1.4.0"
-    id "com.github.johnrengelman.shadow" version "6.0.0"
+    id "org.jetbrains.kotlin.jvm" version "1.4.31"
+    id "com.github.johnrengelman.shadow" version "6.1.0"
     id "org.jetbrains.dokka" version "1.4.0-rc"
 }
 
@@ -34,7 +34,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = "2.2.8"
+def ver = "2.2.10"
 
 group "dev.jaims"
 version ver
