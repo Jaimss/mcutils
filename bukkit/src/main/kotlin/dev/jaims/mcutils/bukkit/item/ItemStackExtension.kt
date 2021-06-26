@@ -25,7 +25,7 @@ inline fun createItem(itemStack: ItemStack, features: ItemStack.() -> Unit): Ite
  * Modify the item meta of a [ItemStack]
  */
 inline fun ItemStack.meta(meta: ItemMeta.() -> Unit) {
-    itemMeta = itemMeta.apply(meta)
+    itemMeta = itemMeta?.apply(meta)
 }
 
 /**

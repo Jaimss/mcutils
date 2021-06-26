@@ -2,7 +2,6 @@ package dev.jaims.mcutils.bukkit
 
 import dev.jaims.mcutils.bukkit.command.CommandHandler
 import dev.jaims.mcutils.bukkit.util.log
-import me.bristermitten.pdm.PluginDependencyManager
 import me.bristermitten.pdm.SpigotDependencyManager
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -38,7 +37,12 @@ abstract class KotlinPlugin : JavaPlugin() {
      */
     override fun onEnable() {
         val millis = measureTimeMillis {
-            SpigotDependencyManager.of(this).loadAllDependencies().join()
+            try {
+                SpigotDependencyManager.of(this).loadAllDependencies().join()
+            } catch (e: NoClassDefFoundError) {
+                // ignore the error. if they have PDM, use it... if not just move on
+            }
+
             "&aEnabling ${description.name} (v${description.version})...".log()
 
             // register managers first
@@ -90,7 +94,8 @@ abstract class KotlinPlugin : JavaPlugin() {
     /**
      * Register a variable amount of listeners.
      */
-    protected fun register(vararg listener: Listener) = listener.forEach { server.pluginManager.registerEvents(it, this) }
+    protected fun register(vararg listener: Listener) =
+        listener.forEach { server.pluginManager.registerEvents(it, this) }
 
     /**
      * Register a variable amount of [CommandHandler]s
