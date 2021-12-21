@@ -1,4 +1,4 @@
-package dev.jaims.mcutils.bukkit.util
+package dev.jaims.mcutils.bukkit.func
 
 import org.bukkit.Location
 import org.bukkit.command.CommandSender

@@ -1,4 +1,4 @@
-import dev.jaims.mcutils.bukkit.util.colorize
+import dev.jaims.mcutils.bukkit.func.colorize
 import net.md_5.bungee.api.ChatColor
 import kotlin.test.Test
 import kotlin.test.assertEquals

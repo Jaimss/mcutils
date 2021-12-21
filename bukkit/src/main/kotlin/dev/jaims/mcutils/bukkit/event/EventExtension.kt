@@ -1,7 +1,7 @@
 package dev.jaims.mcutils.bukkit.event
 
 import dev.jaims.mcutils.bukkit.KotlinPlugin
-import dev.jaims.mcutils.bukkit.util.sync
+import dev.jaims.mcutils.bukkit.func.sync
 import org.bukkit.event.Event
 import org.bukkit.event.EventPriority
 import org.bukkit.event.HandlerList

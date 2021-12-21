@@ -1,6 +1,6 @@
 package dev.jaims.mcutils.bukkit.item
 
-import dev.jaims.mcutils.bukkit.util.colorize
+import dev.jaims.mcutils.bukkit.func.colorize
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemFlag

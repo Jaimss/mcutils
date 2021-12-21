@@ -5,7 +5,7 @@ dev.jaims.mcutils.bukkit
 dev.jaims.mcutils.bukkit.command
 dev.jaims.mcutils.bukkit.event
 dev.jaims.mcutils.bukkit.item
-dev.jaims.mcutils.bukkit.util
+dev.jaims.mcutils.bukkit.func
 dev.jaims.mcutils.bungee
 dev.jaims.mcutils.common
 

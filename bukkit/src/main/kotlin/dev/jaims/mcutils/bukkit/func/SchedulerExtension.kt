@@ -1,4 +1,4 @@
-package dev.jaims.mcutils.bukkit.util
+package dev.jaims.mcutils.bukkit.func
 
 import dev.jaims.mcutils.bukkit.KotlinPlugin
 import org.bukkit.scheduler.BukkitTask

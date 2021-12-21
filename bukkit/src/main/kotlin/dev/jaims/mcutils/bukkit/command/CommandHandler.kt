@@ -1,7 +1,7 @@
 package dev.jaims.mcutils.bukkit.command
 
 import dev.jaims.mcutils.bukkit.KotlinPlugin
-import dev.jaims.mcutils.bukkit.util.log
+import dev.jaims.mcutils.bukkit.func.log
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
