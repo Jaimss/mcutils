@@ -2,4 +2,6 @@
 build/
 .gradle
 
+*.hprof
+
 gradle.properties
