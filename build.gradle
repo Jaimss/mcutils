@@ -34,7 +34,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = "2.2.12"
+def ver = "2.2.13"
 
 group "dev.jaims"
 version ver
@@ -62,6 +62,10 @@ subprojects {
                 }
             }
         }
+    }
+
+    java {
+        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
     }
 
 }
