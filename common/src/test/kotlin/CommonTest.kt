@@ -52,4 +52,10 @@ class CommonTest {
             "Jaimss".getInputType()
         )
     }
+
+    @Test
+    fun toPasteTest() {
+        println("One Line".toPastebin())
+        println("Multi Line\nNext".toPastebin())
+    }
 }

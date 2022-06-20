@@ -1,6 +1,6 @@
 plugins {
     id "maven-publish"
-    id "org.jetbrains.kotlin.jvm" version "1.4.31"
+    id "org.jetbrains.kotlin.jvm" version "1.5.10"
     id "com.github.johnrengelman.shadow" version "6.1.0"
     id "org.jetbrains.dokka" version "1.4.0-rc"
 }
@@ -24,7 +24,6 @@ allprojects {
     dependencies {
         compileOnly "me.bristermitten:pdm:0.0.33"
         compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
-        compileOnly "com.github.jkcclemens:khttp:39f76b4186"
 
         testImplementation group: "org.jetbrains.kotlin", name: "kotlin-test-junit", version: "1.4.0"
     }
@@ -34,7 +33,7 @@ dokkaHtmlCollector {
     outputDirectory = "$projectDir/docs"
 }
 
-def ver = "2.2.13"
+def ver = "2.2.14"
 
 group "dev.jaims"
 version ver

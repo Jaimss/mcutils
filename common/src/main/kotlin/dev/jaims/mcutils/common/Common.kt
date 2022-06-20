@@ -1,22 +1,27 @@
 package dev.jaims.mcutils.common
 
-import khttp.post
+import java.net.URI
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 import java.util.*
 
 /**
  * Post a [String] to https://paste.jaims.dev. Useful for sending console logs or error messages.
+ * Splits \n for new lines
  */
 fun String.toPastebin(): String {
-    val url = "https://paste.jaims.dev/documents"
-    val r = post(
-        url,
-        mapOf(
-            "Content-Type" to "text/plain; charset=utf-8",
-            "Content-Length" to this.encodeToByteArray().size.toString()
-        ),
-        data = this,
-    )
-    return "https://paste.jaims.dev/${r.jsonObject["key"]}"
+    val url = "https://paste.jaims.dev/documents/"
+    val client = HttpClient.newHttpClient()
+    val request = HttpRequest.newBuilder()
+        .uri(URI.create(url))
+        .header("Content-Type", "application/json; charset=utf-8")
+        .POST(HttpRequest.BodyPublishers.ofString(this))
+        .build()
+
+    val response = client.send(request, HttpResponse.BodyHandlers.ofString())
+    val key = response.body().substring(8, 18) // bad way to do this
+    return "https://paste.jaims.dev/${key}"
 }
 
 /**
