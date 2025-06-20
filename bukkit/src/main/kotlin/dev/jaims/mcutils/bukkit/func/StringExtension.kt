@@ -2,6 +2,7 @@ package dev.jaims.mcutils.bukkit.func
 
 import dev.jaims.mcutils.bukkit.KotlinPlugin
 import me.clip.placeholderapi.PlaceholderAPI
+import net.kyori.adventure.Adventure
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin

@@ -11,7 +11,7 @@ import java.util.*
  * Splits \n for new lines
  */
 fun String.toPastebin(): String {
-    val url = "https://paste.jaims.dev/documents/"
+    val url = "https://paste.helpch.at/documents/"
     val client = HttpClient.newHttpClient()
     val request = HttpRequest.newBuilder()
         .uri(URI.create(url))
@@ -21,7 +21,7 @@ fun String.toPastebin(): String {
 
     val response = client.send(request, HttpResponse.BodyHandlers.ofString())
     val key = response.body().substring(8, 18) // bad way to do this
-    return "https://paste.jaims.dev/${key}"
+    return "https://paste.helpch.at/${key}"
 }
 
 /**

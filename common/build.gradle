@@ -1,3 +1,5 @@
 dependencies {
+    implementation('org.json:json:20250517')
+    implementation 'org.danilopianini:khttp:1.6.3'
     testImplementation(project(":common"))
 }

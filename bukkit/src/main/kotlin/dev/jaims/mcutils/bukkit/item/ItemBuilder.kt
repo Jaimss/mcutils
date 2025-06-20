@@ -1,5 +1,6 @@
 package dev.jaims.mcutils.bukkit.item
 
+import net.kyori.adventure.text.Component
 import org.bukkit.Material
 import org.bukkit.enchantments.Enchantment
 import org.bukkit.inventory.ItemFlag
@@ -35,17 +36,17 @@ class ItemBuilder(
         val meta = item.itemMeta ?: return item
 
         if (meta is Damageable) meta.damage = damage
-        if (name != null) meta.setDisplayName(name)
+        if (name != null) meta.displayName(Component.text(name!!))
         for (e in enchantments) meta.addEnchant(e.key, e.value, true)
         // need to find a better way to do this so it doesn't affect your enchantments
         if (glow) {
-            meta.addEnchant(Enchantment.OXYGEN, 1, true)
+            meta.addEnchant(Enchantment.RESPIRATION, 1, true)
             this.itemflags.add(ItemFlag.HIDE_ENCHANTS)
         }
         if (unbreakable) meta.isUnbreakable = true
         for (f in itemflags) meta.addItemFlags(f)
 
-        meta.lore = lore
+        meta.lore(lore.map(Component::text))
         item.itemMeta = meta
         return item
     }

@@ -1,8 +1,8 @@
 plugins {
     id "maven-publish"
-    id "org.jetbrains.kotlin.jvm" version "1.5.10"
-    id "com.github.johnrengelman.shadow" version "6.1.0"
-    id "org.jetbrains.dokka" version "1.4.0-rc"
+    id "org.jetbrains.kotlin.jvm" version "2.1.21"
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "org.jetbrains.dokka" version "2.0.0"
 }
 
 allprojects {
@@ -18,19 +18,25 @@ allprojects {
 
     repositories {
         mavenCentral()
-        maven { url "https://repo.jaims.dev/repository/all/" }
+        maven {
+            name = 'papermc'
+            url = 'https://repo.papermc.io/repository/maven-public/'
+        }
+        maven {
+            name = "placeholderapi"
+            url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+        }
     }
 
     dependencies {
-        compileOnly "me.bristermitten:pdm:0.0.33"
         compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
         testImplementation group: "org.jetbrains.kotlin", name: "kotlin-test-junit", version: "1.4.0"
     }
 }
 
-dokkaHtmlCollector {
-    outputDirectory = "$projectDir/docs"
+tasks.named("dokkaHtmlMultiModule") {
+    outputDirectory.set(file("$projectDir/docs"))
 }
 
 def ver = "2.2.14"
@@ -45,6 +51,10 @@ subprojects {
     publishing {
         publications {
             mavenJava(MavenPublication) {
+                groupId = "dev.jaims.mcutils"
+                artifactId = project.name
+                version = project.version
+
                 from components.java
             }
         }
@@ -64,14 +74,14 @@ subprojects {
     }
 
     java {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     }
 
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "21"
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "21"
 }

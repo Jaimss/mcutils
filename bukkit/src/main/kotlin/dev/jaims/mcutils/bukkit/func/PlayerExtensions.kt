@@ -74,13 +74,6 @@ fun Entity.inRadiusOfLocation(location: Location, radius: Int): Boolean {
 fun Damageable.kill(): Damageable = apply { health = 0.0 }
 
 /**
- * Heal a [Damageable] entity.
- * Default for [newHealth] is 20
- */
-fun Damageable.heal(newHealth: Double = 20.0): Damageable = apply { health = newHealth }
-
-
-/**
  * Feed a [Player]
  * Default for [newFood] is 20
  */

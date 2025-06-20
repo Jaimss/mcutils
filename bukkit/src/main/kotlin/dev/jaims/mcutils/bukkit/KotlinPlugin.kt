@@ -2,7 +2,6 @@ package dev.jaims.mcutils.bukkit
 
 import dev.jaims.mcutils.bukkit.command.CommandHandler
 import dev.jaims.mcutils.bukkit.func.log
-import me.bristermitten.pdm.SpigotDependencyManager
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 import kotlin.system.measureTimeMillis
@@ -37,13 +36,7 @@ abstract class KotlinPlugin : JavaPlugin() {
      */
     override fun onEnable() {
         val millis = measureTimeMillis {
-            try {
-                SpigotDependencyManager.of(this).loadAllDependencies().join()
-            } catch (e: NoClassDefFoundError) {
-                // ignore the error. if they have PDM, use it... if not just move on
-            }
-
-            "&aEnabling ${description.name} (v${description.version})...".log()
+            "&aEnabling ${pluginMeta.name} (v${pluginMeta.version})...".log()
 
             // register managers first
             registerManagers()
@@ -53,7 +46,7 @@ abstract class KotlinPlugin : JavaPlugin() {
             // call our enable code
             enable()
         }
-        "&a${description.name} (v${description.version}) enabled in &e$millis &ams!".log()
+        "&a${pluginMeta.name} (v${pluginMeta.version}) enabled in &e$millis &ams!".log()
     }
 
     /**
@@ -63,12 +56,12 @@ abstract class KotlinPlugin : JavaPlugin() {
 
     override fun onDisable() {
         val millis = measureTimeMillis {
-            "&cDisabling ${description.name} (v${description.version})...".log()
+            "&cDisabling ${pluginMeta.name} (v${pluginMeta.version})...".log()
 
             // call the disable method
             disable()
         }
-        "&c${description.name} (v${description.version}) disabled in &e$millis &cms.".log()
+        "&c${pluginMeta.name} (v${pluginMeta.version}) disabled in &e$millis &cms.".log()
     }
 
     /**
